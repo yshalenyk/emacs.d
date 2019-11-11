@@ -64,4 +64,4 @@
 (use-package dap-python
   :config (setq dap-python-executable "python3"))
 
-(provide 'ysh_autocomplete.el)
+(provide 'ysh_autocomplete)

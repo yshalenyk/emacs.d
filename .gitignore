@@ -1,0 +1,6 @@
+/.last-package-update-day
+backups/*
+/custom.el
+/elpa/
+/network-security.data
+/projectile-bookmarks.eld

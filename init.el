@@ -84,10 +84,12 @@
 
 ;; load config modules
 (use-package ysh_ui)
+(use-package ysh_search)
 (use-package ysh_coding)
-(use-package ush_autocomplete)
+(use-package ysh_autocomplete)
 (use-package ysh_python)
 (use-package ysh_abbrev)
+(use-package ysh_tools)
 
 
 

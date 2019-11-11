@@ -41,3 +41,4 @@
   :ensure t
   :bind ("M-;" . smart-comment))
 
+(provide 'ysh_coding)
