@@ -4,3 +4,11 @@ backups/*
 /elpa/
 /network-security.data
 /projectile-bookmarks.eld
+/anaconda-mode/
+/auto-save-list/
+/emms/
+/eshell/
+/recentf
+/transient/
+/.dap-breakpoints
+/.lsp-session-v1
