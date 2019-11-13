@@ -47,9 +47,12 @@
 
 ;; setup themes
 (use-package nofrils-acme-theme
-  :ensure t)
+  :ensure t
+  :config (load-theme 'nofrils-light t))
 
-(load-theme 'nofrils-light t)
+;; (use-package kaolin-themes
+;;   :ensure t
+;;   :config (load-theme 'kaolin-light t))
 
 ;; other themes
 ;; (use-package almost-mono-themes
