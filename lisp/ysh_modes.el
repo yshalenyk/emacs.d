@@ -15,5 +15,6 @@
 (use-package nginx-mode
   :ensure t)
 
-
+(use-package go-mode
+  :ensure t)
 (provide 'ysh_modes)
