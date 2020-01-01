@@ -5,7 +5,6 @@
 
 ;;; git frontend
 (use-package magit
-  :bind ("C-c g" . magit)
   :hook (magit-mode . xah-fly-insert-mode-activate)
   :ensure t)
 

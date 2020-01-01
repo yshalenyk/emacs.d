@@ -94,10 +94,12 @@
 (use-package monitor
   :ensure t)
 
+(use-package server
+  :hook (after-init . server-start))
 
 ;; load config modules
-;; (use-package ysh_evil)
 (use-package fly_keys)
+;; (use-package ysh_evil)
 (use-package ysh_ui)
 (use-package ysh_modes)
 ;; (use-package ysh_ido)
