@@ -3,15 +3,15 @@
   :ensure t
   :bind (:map python-mode-map ("C-c t" . python-pytest-popup)))
 
-(use-package anaconda-mode
-  :ensure t
-  :config
-  (use-package company-anaconda
-    :ensure t
-    :config (add-to-list 'company-backends 'company-anaconda))
-  (progn
-    (add-hook 'python-mode-hook 'anaconda-mode)
-    (add-hook 'python-mode-hook 'anaconda-eldoc-mode)))
+;; (use-package anaconda-mode
+;;   :ensure t
+;;   :config
+;;   (use-package company-anaconda
+;;     :ensure t
+;;     :config (add-to-list 'company-backends 'company-anaconda))
+;;   (progn
+;;     (add-hook 'python-mode-hook 'anaconda-mode)
+;;     (add-hook 'python-mode-hook 'anaconda-eldoc-mode)))
 
 (use-package pyenv-mode
   :ensure t
