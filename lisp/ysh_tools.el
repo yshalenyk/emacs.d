@@ -29,4 +29,7 @@
 (use-package dired-x
   :demand t)
 
+(use-package deadgrep
+  :ensure t)
+
 (provide 'ysh_tools)
