@@ -3,10 +3,9 @@
   :ensure t
   :diminish company-mode
   :init (progn (setq company-idle-delay 0)
-	       (setq company-dabbrev-downcase nil))
+	       (setq company-dabbrev-downcase nil)
+	       (setq company-auto-complete t))
   :config (global-company-mode))
-
-
 
 ;;; tooltips
 (use-package company-quickhelp
@@ -22,9 +21,6 @@
   :hook (prog-mode . lsp)
   :config (lsp-mode t))
 
-
-;; (use-package lsp-python
-;;   :hook (python-mode . #'lsp-python-enble))
 
 (use-package lsp-ui
   :ensure t
