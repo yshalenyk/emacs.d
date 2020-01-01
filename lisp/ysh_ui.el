@@ -10,14 +10,13 @@
 ;; (set-frame-font "Source Code Pro-12")   ; set default font
 ;; (set-frame-font "Noto Mono-10.5" t t)   ; set default font
 ;; (setq default-frame-alist '((font . "Noto Mono-10.5")))
-(set-frame-font "Source Code Pro Medium-13" t t)   ; set default font
-(setq default-frame-alist '((font . "Source Code Pro Medium-13")))
+(set-frame-font "Source Code Pro Medium-12" t t)   ; set default font
+(setq default-frame-alist '((font . "Source Code Pro Medium-12")))
 
 ;;; Apperiance settings (minimal mode)
 ;;(menu-bar-mode -1)
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
-
 
 ;;; additional editing configuration
 (electric-pair-mode 1)
@@ -38,17 +37,19 @@
 (use-package delight
   :ensure t
   :config (delight '((abbrev-mode " Abv" "abbrev")
-           (smart-tab-mode " \\t" "smart-tab")
-           (eldoc-mode nil "eldoc")
-           (rainbow-mode)
-           (overwrite-mode " Ov" t)
-           (emacs-lisp-mode "Elisp" :major))))
+		     (smart-tab-mode " \\t" "smart-tab")
+		     (eldoc-mode nil "eldoc")
+		     (rainbow-mode)
+		     (overwrite-mode " Ov" t)
+		     (emacs-lisp-mode "Elisp" :major))))
 
 
 ;; setup themes
-(use-package nofrils-acme-theme
-  :ensure t
-  :config (load-theme 'nofrils-light t))
+;; (use-package nofrils-acme-theme
+;;   :ensure t
+;;   :config (load-theme 'nofrils-light t))
+(use-package acme-theme
+  :config (load-theme 'acme))
 
 ;; (use-package kaolin-themes
 ;;   :ensure t
@@ -73,11 +74,16 @@
   :diminish which-key-mode
   :config (progn
 	    (which-key-mode)
-	    (which-key-setup-side-window-bottom)
-	    (which-key-setup-minibuffer)))
+	    (which-key-setup-side-window-right)))
+;; (which-key-setup-side-window-bottom))
+;; (which-key-setup-minibuffer)))
 
 
 ;;; smart splits sizing
+;; (use-package zoom
+;;   :ensure t
+;;   :config (zoom-mode t))
+
 (use-package golden-ratio
   :ensure t
   :diminish golden-ratio-mode
