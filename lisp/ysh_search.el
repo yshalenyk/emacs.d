@@ -4,7 +4,6 @@
   ;; https://github.com/abo-abo/swiper/blob/master/ivy.el#L409
   :demand
   :diminish ivy-mode
-  :after (xah-fly-keys)
   :custom
   (ivy-use-virtual-buffers t)
   (ivy-height 15)
@@ -24,7 +23,6 @@
   ;; TODO: wgrep
   ;; (use-package wgrep :ensure t)
   (ivy-mode t)
-
   )
 
 (use-package counsel
@@ -84,7 +82,6 @@
 (use-package projectile
   :delight '(:eval (concat " " (projectile-project-name)))
   :ensure t
-  :after (magit)
   :custom (projectile-completion-system 'ivy)
   :config
   (projectile-mode t)
