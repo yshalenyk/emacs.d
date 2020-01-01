@@ -3,41 +3,31 @@
   :ensure t
   :config (xclip-mode 1))
 
-
-
 ;;; git frontend
 (use-package magit
   :bind ("C-c g" . magit)
+  :hook (magit-mode . xah-fly-insert-mode-activate)
   :ensure t)
-
 
 ;;; pass frontend
 (use-package pass
   :ensure t
   :bind ("C-c C-u p" . pass))
 
-
-
-;;; fun
+;; ;;; fun
+;; (use-package acme-search
+;;   :config (global-set-key [(mouse-1)] 'acme-search-forward))
 
 ;; reddit
 (use-package md4rd
   :ensure t
   :config (add-hook 'md4rd-mode-hook 'md4rd-indent-all-the-lines))
 
-;; twitter
-(use-package twittering-mode
+(use-package format-all
   :ensure t
-  :config (progn (setq twittering-icon-mode t) (setq twittering-reverse-mode t) ))
+  :hook (prog-mode . format-all-mode))
 
-
-;; mpd control
-(use-package emms
-  :ensure t
-  :config
-  (require 'emms-setup)
-  (require 'emms-player-mpd)
-  (setq emms-player-mpd-server-name "localhost"
-	emms-player-mpd-server-port "6600"))
+(use-package dired-x
+  :demand t)
 
 (provide 'ysh_tools)
