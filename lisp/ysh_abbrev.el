@@ -106,7 +106,7 @@
     ("case" "$ => {},")
     ("cfg" "#[cfg($)]")
     ("cfgv" "#[cfg($ = \"\")]")
-    ;; TODO
+    ;; TODO: || doesnt expand
     ("||" "|$|{\n}")
     ("derive" "#[derive($)]")
     ("display" "impl Display for $ {
@@ -116,7 +116,7 @@
 }")
     ("drop" "impl Drop for $ {
      fn drop(&mut self) {
-          
+
       }
 }")
     ("enum" "enum $ {\n}")
@@ -236,33 +236,33 @@ if cursor is not in string or comment.
 Returns the abbrev symbol if there's a expansion, else nil.
 Version 2019-01-10"
   (interactive)
-    (let ( $p1 $p2
-               $abrStr
-               $abrSymbol
-               )
+  (let ( $p1 $p2
+	     $abrStr
+	     $abrSymbol
+	     )
 
-      ;; (save-excursion
-      ;;   (forward-symbol -1)
-      ;;   (setq $p1 (point))
-      ;;   (goto-char $p0)
-      ;;   (setq $p2 $p0))
+    ;; (save-excursion
+    ;;   (forward-symbol -1)
+    ;;   (setq $p1 (point))
+    ;;   (goto-char $p0)
+    ;;   (setq $p2 $p0))
 
-      (save-excursion
-        ;; 2017-01-16 note: we select the whole symbol to solve a problem. problem is: if “aa”  is a abbrev, and “▮bbcc” is existing word with cursor at beginning, and user wants to type aa- to result in aa-bbcc. Normally, aa immediately expands. This prevent people editing bbcc to become aa-bbcc. This happens for example in elisp, when editing “search-forward” to become “re-search-forward”. The downside of this is that, people cannot type a abbrev when in middle of a word.
-        (forward-symbol -1)
-        (setq $p1 (point))
-        (forward-symbol 1)
-        (setq $p2 (point)))
+    (save-excursion
+      ;; 2017-01-16 note: we select the whole symbol to solve a problem. problem is: if “aa”  is a abbrev, and “▮bbcc” is existing word with cursor at beginning, and user wants to type aa- to result in aa-bbcc. Normally, aa immediately expands. This prevent people editing bbcc to become aa-bbcc. This happens for example in elisp, when editing “search-forward” to become “re-search-forward”. The downside of this is that, people cannot type a abbrev when in middle of a word.
+      (forward-symbol -1)
+      (setq $p1 (point))
+      (forward-symbol 1)
+      (setq $p2 (point)))
 
-      (setq $abrStr (buffer-substring-no-properties $p1 $p2))
-      (setq $abrSymbol (abbrev-symbol $abrStr))
-      (if $abrSymbol
-          (progn
-            (abbrev-insert $abrSymbol $abrStr $p1 $p2 )
-	    (reindent-then-newline-and-indent)
-            (xah-global-abbrev-position-cursor $p1)
-            $abrSymbol)
-        nil)))
+    (setq $abrStr (buffer-substring-no-properties $p1 $p2))
+    (setq $abrSymbol (abbrev-symbol $abrStr))
+    (if $abrSymbol
+	(progn
+	  (abbrev-insert $abrSymbol $abrStr $p1 $p2 )
+	  (reindent-then-newline-and-indent)
+	  (xah-global-abbrev-position-cursor $p1)
+	  $abrSymbol)
+      nil)))
 
 ;; (defun delete-preceding-space-before-expand ()
 ;;   (when (and (= (char-after) ?\s)
@@ -276,7 +276,7 @@ Version 2019-01-10"
 
 
 (defun clean-previous-symbol ()
-    "Cleans prev space"
+  "Cleans prev space"
   (interactive)
   (delete-char 1)
   (when (char-equal (char-before) ?\s)
