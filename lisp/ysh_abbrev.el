@@ -288,7 +288,6 @@
 
 
 ;; (setq save-abbrevs nil)
-
 (provide 'ysh_abbrev)
 
 ;; ;;; ysh_abbrev.el ends here

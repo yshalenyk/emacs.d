@@ -18,7 +18,9 @@
   :ensure t
   :custom (lsp-dart-sdk-dir "/home/yshalenyk/tools/dart-sdk")
   :commands lsp
-  :init (setq-default lsp-response-timeout 25)
+  :init
+  (setq-default lsp-response-timeout 25)
+  (setq lsp-enable-snippet nil)
   :hook (prog-mode . lsp)
   :config (lsp-mode t))
 

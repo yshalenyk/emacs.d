@@ -90,5 +90,18 @@
   (setq uniquify-after-kill-buffer-p t)
   (setq uniquify-ignore-buffers-re "^\\*")
   )
+;; ;; better eshell
+;; (use-package aweshell
+;;   :ensure t)
+
+(use-package harvest
+    :demand t
+    :ensure t
+    :config
+    (global-set-key (kbd "C-c h") 'harvest))
+
+(use-package atomic-chrome
+  :ensure t
+  :config (atomic-chrome-start-server))
 
 (provide 'ysh_tools)

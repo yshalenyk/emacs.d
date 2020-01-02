@@ -19,6 +19,7 @@
 (setq initial-scratch-message "Welcome in Emacs") ; print a default message in the empty scratch buffer opened at startup
 (defalias 'yes-or-no-p 'y-or-n-p)       ; must have
 
+
 ;; (setq-default package-check-signature nil)
 ;; use gpg2
 (setq epg-gpg-program "gpg2")
@@ -44,10 +45,10 @@
 (load custom-file)
 
 
-;; bug in emacs-26.2
+ ;; bug in emacs-26.2
 (when (version< emacs-version "26.3")
-  (setq-default gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3"))
-
+  (setq-default gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
+  )
 ;;; packaging
 (require 'package)
 (setq package-enable-at-startup nil) ; tells emacs not to load any packages before starting up
@@ -83,13 +84,15 @@
 
 (require 'use-package) ; guess what this one does too ?
 
+
+
 ;;; auto update packages
 (use-package auto-package-update
-  :ensure t
-  :config
-  (setq auto-package-update-delete-old-versions t
-	auto-package-update-interval 4)
-  (auto-package-update-maybe))
+   :ensure t
+   :config
+   (setq auto-package-update-delete-old-versions t
+         auto-package-update-interval 4)
+   (auto-package-update-maybe))
 
 ;;; use libs
 (use-package dash
@@ -101,6 +104,12 @@
 
 (use-package server
   :hook (after-init . server-start))
+(use-package recentf
+  :config (recentf-mode t))
+
+(save-place-mode t)
+(global-auto-revert-mode t)
+(global-subword-mode t)
 
 ;; load config modules
 (use-package fly_keys)

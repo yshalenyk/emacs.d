@@ -10,13 +10,14 @@
 ;; (set-frame-font "Source Code Pro-12")   ; set default font
 ;; (set-frame-font "Noto Mono-10.5" t t)   ; set default font
 ;; (setq default-frame-alist '((font . "Noto Mono-10.5")))
-(set-frame-font "Source Code Pro Medium-12" t t)   ; set default font
-(setq default-frame-alist '((font . "Source Code Pro Medium-12")))
+(set-frame-font "Source Code Pro Medium-13" t t)   ; set default font
+(setq default-frame-alist '((font . "Source Code Pro Medium-13")))
 
 ;;; Apperiance settings (minimal mode)
 ;;(menu-bar-mode -1)
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
+
 
 ;;; additional editing configuration
 (electric-pair-mode 1)
@@ -37,19 +38,19 @@
 (use-package delight
   :ensure t
   :config (delight '((abbrev-mode " Abv" "abbrev")
-		     (smart-tab-mode " \\t" "smart-tab")
-		     (eldoc-mode nil "eldoc")
-		     (rainbow-mode)
-		     (overwrite-mode " Ov" t)
-		     (emacs-lisp-mode "Elisp" :major))))
+           (smart-tab-mode " \\t" "smart-tab")
+           (eldoc-mode nil "eldoc")
+           (rainbow-mode)
+           (overwrite-mode " Ov" t)
+           (emacs-lisp-mode "Elisp" :major))))
 
 
 ;; setup themes
-;; (use-package nofrils-acme-theme
-;;   :ensure t
-;;   :config (load-theme 'nofrils-light t))
-(use-package acme-theme
-  :config (load-theme 'acme))
+(use-package nofrils-acme-theme
+  :ensure t)
+(use-package olivetti :ensure t :config (olivetti-mode t))
+    (olivetti-mode 1)        ;; Centers text in the buffer
+    (flyspell-mode 1)   
 
 ;; (use-package kaolin-themes
 ;;   :ensure t
