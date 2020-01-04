@@ -21,7 +21,7 @@
      (t . "^")))
   :config
   ;; TODO: wgrep
-  ;; (use-package wgrep :ensure t)
+  (use-package wgrep :ensure t)
   (ivy-mode t)
   )
 
@@ -77,7 +77,6 @@
   :after (ivy projectile)
   :config
   )
-
 
 (use-package projectile
   :delight '(:eval (concat " " (projectile-project-name)))
