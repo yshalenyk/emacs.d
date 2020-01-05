@@ -85,7 +85,6 @@
 	auto-package-update-interval 4)
   (auto-package-update-maybe))
 
-
 ;;; use libs
 (use-package dash
   :ensure t)
@@ -102,16 +101,15 @@
 ;; (use-package ysh_evil)
 (use-package ysh_ui)
 (use-package ysh_modes)
-;; (use-package ysh_ido)
-(use-package ysh_search)
+(use-package ysh_ido)
+;; (use-package ysh_search)
 (use-package ysh_coding)
 (use-package ysh_autocomplete)
 (use-package ysh_python)
-;;(use-package ysh_abbrev)
+(use-package ysh_abbrev)
 (use-package ysh_tools)
-
-
 
 ;;; TODO: dap-mode
 (provide 'init)
 ;;; init.el ends here
+(put 'narrow-to-region 'disabled nil)

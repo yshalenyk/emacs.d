@@ -78,19 +78,4 @@
   :config
   )
 
-(use-package projectile
-  :delight '(:eval (concat " " (projectile-project-name)))
-  :ensure t
-  :custom (projectile-completion-system 'ivy)
-  :config
-  (projectile-mode t)
-  )
-
-;; TODO: figure out why keybindings don't set-up in use-package
-(define-key xah-fly-dot-keymap (kbd "f") 'counsel-projectile-find-file)
-(define-key xah-fly-dot-keymap (kbd "p") 'counsel-projectile-switch-project)
-(define-key xah-fly-dot-keymap (kbd "e") 'projectile-run-eshell)
-(define-key xah-fly-dot-keymap (kbd "g") 'projectile-vc)
-(define-key xah-fly-dot-keymap (kbd "d") 'projectile-dired-other-window)
-
 (provide 'ysh_search)
