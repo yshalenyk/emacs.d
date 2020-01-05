@@ -29,6 +29,9 @@
 (setq global-auto-revert-non-file-buffers t)
 (setq auto-revert-verbose nil)
 
+;; gc threshold
+(setq gc-cons-threshold 20000000)
+
 ;;; disable init.el modifying by custom system
 (defvar custom-file-path "~/.emacs.d/custom.el" )
 (if (not (file-exists-p custom-file-path))
