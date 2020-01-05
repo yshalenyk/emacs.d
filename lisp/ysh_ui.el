@@ -107,6 +107,7 @@
   :config
   (global-set-key (kbd "C-h f") #'helpful-callable)
   (global-set-key (kbd "C-h v") #'helpful-variable)
+  (global-set-key (kbd "C-h h") #'helpful-at-point)
   (global-set-key (kbd "C-h k") #'helpful-key))
 
 ;; alpha if you want
