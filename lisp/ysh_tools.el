@@ -65,4 +65,30 @@
   :config
   (recentf-mode 1))
 
+(use-package define-word
+  :ensure t)
+
+(use-package ibuffer
+  :custom
+  (ibuffer-show-empty-filter-groups nil)
+  :config
+  (use-package ibuffer-vc
+    :ensure t
+    :config
+    (add-hook 'ibuffer-hook
+	      (lambda ()
+		(ibuffer-vc-set-filter-groups-by-vc-root)
+		(unless (eq ibuffer-sorting-mode 'alphabetic)
+		  (ibuffer-do-sort-by-alphabetic)))))
+  )
+
+
+(use-package uniquify
+  :config
+  (setq uniquify-buffer-name-style 'reverse)
+  (setq uniquify-separator " • ")
+  (setq uniquify-after-kill-buffer-p t)
+  (setq uniquify-ignore-buffers-re "^\\*")
+  )
+
 (provide 'ysh_tools)

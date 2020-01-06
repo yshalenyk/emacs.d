@@ -22,6 +22,10 @@
 ;; (setq-default package-check-signature nil)
 ;; use gpg2
 (setq epg-gpg-program "gpg2")
+
+;; word navigate
+(subword-mode t)
+
 ;; Auto refresh buffers
 (global-auto-revert-mode 1)
 
@@ -67,7 +71,6 @@
 (set-default-coding-systems 'utf-8-unix)
 ;; (setenv "LANG" "en_US.UTF-8" )
 ;; (setenv "LC_ALL" "en_US.UTF-8" )
-
 
 ;; refresh
 (when (not package-archive-contents)

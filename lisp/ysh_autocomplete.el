@@ -16,6 +16,7 @@
 ;;; language server protocol
 (use-package lsp-mode
   :ensure t
+  :custom (lsp-dart-sdk-dir "/home/yshalenyk/tools/dart-sdk")
   :commands lsp
   :init (setq-default lsp-response-timeout 25)
   :hook (prog-mode . lsp)
@@ -55,7 +56,8 @@
   :after dap-mode
   :config (progn (tooltip-mode 1)
 		 (dap-ui-mode 1)
-		 (dap-tooltip-mode 1)))
+		 (dap-tooltip-mode 1))
+  )
 
 (use-package dap-python
   :config (setq dap-python-executable "python3"))

@@ -17,4 +17,8 @@
 
 (use-package go-mode
   :ensure t)
+
+(use-package dart-mode
+  :ensure t)
+
 (provide 'ysh_modes)

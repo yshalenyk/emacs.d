@@ -1,18 +1,9 @@
-
 ;; expand selectction
 (use-package expand-region
   :ensure t
   :config
   (global-set-key (kbd "C-=") 'er/expand-region)
   (global-set-key (kbd "C--") 'er/contract-region))
-
-(use-package multiple-cursors
-  :ensure t
-  :config
-  (global-set-key (kbd "C-c C-c m") 'mc/edit-lines)
-  (global-set-key (kbd "C->") 'mc/mark-next-like-this)
-  (global-set-key (kbd "C-<") 'mc/mark-previous-like-this))
-
 
 ;; smart wrap
 (use-package smartparens
@@ -31,14 +22,14 @@
 
 
 ;;; better code folding
-(use-package yafolding
-  :ensure t
-  :bind ("C-c <C-return>" . yafolding-toggle-element)
-  :hook (prog-mode . yafolding-mode))
+;; (use-package yafolding
+;;   :ensure t
+;;   :bind ("C-c <C-return>" . yafolding-toggle-element)
+;;   :hook (prog-mode . yafolding-mode))
 
-;; smart code comment
-(use-package smart-comment
-  :ensure t
-  :bind ("M-;" . smart-comment))
+(use-package hide-show
+  :bind ("<C-return>" . hs-toggle-hiding)
+  :hook (prog-mode . hs-minor-mode)
+  )
 
 (provide 'ysh_coding)
