@@ -12,3 +12,10 @@ backups/*
 /transient/
 /.dap-breakpoints
 /.lsp-session-v1
+/.cache/
+/.harvest/
+/tramp
+/smex-items
+/prescient-items
+/places
+/bookmarks
