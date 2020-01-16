@@ -29,9 +29,9 @@
   :ensure t)
 
 ;;; pass frontend
-(use-package pass
-  :ensure t
-  :bind ("C-c C-u p" . pass))
+;; (use-package pass
+;;   :ensure t
+;;   :bind ("C-c C-u p" . pass))
 
 ;; ;;; fun
 ;; (use-package acme-search
@@ -45,6 +45,9 @@
 (use-package format-all
   :ensure t
   :hook (prog-mode . format-all-mode))
+
+(use-package expand-region
+  :ensure t)
 
 (use-package dired
   :config
@@ -95,10 +98,10 @@
 ;;   :ensure t)
 
 (use-package harvest
-    :demand t
-    :ensure t
-    :config
-    (global-set-key (kbd "C-c h") 'harvest))
+  :demand t
+  :ensure t
+  :config
+  (global-set-key (kbd "C-c h") 'harvest))
 
 (use-package atomic-chrome
   :ensure t

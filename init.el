@@ -37,6 +37,9 @@
 ;; gc threshold
 (setq gc-cons-threshold 20000000)
 
+;; woman
+(defalias 'man 'woman)
+
 ;;; disable init.el modifying by custom system
 (defvar custom-file-path "~/.emacs.d/custom.el" )
 (if (not (file-exists-p custom-file-path))
@@ -45,10 +48,10 @@
 (load custom-file)
 
 
- ;; bug in emacs-26.2
-(when (version< emacs-version "26.3")
-  (setq-default gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
-  )
+;; bug in emacs-26.2
+;; (when (version< emacs-version "26.3")
+;;   (setq-default gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
+;;   )
 ;;; packaging
 (require 'package)
 (setq package-enable-at-startup nil) ; tells emacs not to load any packages before starting up
@@ -88,11 +91,11 @@
 
 ;;; auto update packages
 (use-package auto-package-update
-   :ensure t
-   :config
-   (setq auto-package-update-delete-old-versions t
-         auto-package-update-interval 4)
-   (auto-package-update-maybe))
+  :ensure t
+  :config
+  (setq auto-package-update-delete-old-versions t
+        auto-package-update-interval 4)
+  (auto-package-update-maybe))
 
 ;;; use libs
 (use-package dash
@@ -113,7 +116,9 @@
 
 ;; load config modules
 (use-package fly_keys)
+(use-package ysh_keymap)
 ;; (use-package ysh_evil)
+;; (use-package ysh_viper)
 (use-package ysh_ui)
 (use-package ysh_modes)
 (use-package ysh_ido)

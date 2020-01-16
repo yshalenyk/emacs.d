@@ -16,6 +16,7 @@
     :ensure t)
   (use-package flx-ido
     :ensure t)
+  (use-package ido-occur :ensure t)
 
   (ido-mode 1)
   (flx-ido-mode t)

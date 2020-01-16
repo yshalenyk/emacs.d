@@ -3,15 +3,15 @@
 ;;; my Emacs ui configuration
 ;;; Code:
 (setq-default truncate-lines t)         ; straight lines
-(custom-set-variables
- '(initial-frame-alist (quote ((fullscreen . maximized)))))
+;; (custom-set-variables
+;;  '(initial-frame-alist (quote ((fullscreen . maximized)))))
 (global-hl-line-mode 1)                 ; highlight current line
 ;; (setq default-frame-alist '((font . "Source Code Pro-12")))
 ;; (set-frame-font "Source Code Pro-12")   ; set default font
-;; (set-frame-font "Noto Mono-10.5" t t)   ; set default font
-;; (setq default-frame-alist '((font . "Noto Mono-10.5")))
-(set-frame-font "Source Code Pro Medium-13" t t)   ; set default font
-(setq default-frame-alist '((font . "Source Code Pro Medium-13")))
+(set-frame-font "Noto Mono-10.5" t t)   ; set default font
+(setq default-frame-alist '((font . "Noto Mono-10.5")))
+;; (set-frame-font "Source Code Pro Medium-13" t t)   ; set default font
+;; (setq default-frame-alist '((font . "Source Code Pro Medium-13")))
 
 ;;; Apperiance settings (minimal mode)
 ;;(menu-bar-mode -1)
@@ -38,19 +38,20 @@
 (use-package delight
   :ensure t
   :config (delight '((abbrev-mode " Abv" "abbrev")
-           (smart-tab-mode " \\t" "smart-tab")
-           (eldoc-mode nil "eldoc")
-           (rainbow-mode)
-           (overwrite-mode " Ov" t)
-           (emacs-lisp-mode "Elisp" :major))))
+		     (smart-tab-mode " \\t" "smart-tab")
+		     (eldoc-mode nil "eldoc")
+		     (rainbow-mode)
+		     (overwrite-mode " Ov" t)
+		     (emacs-lisp-mode "Elisp" :major))))
 
 
-;; setup themes
-(use-package nofrils-acme-theme
-  :ensure t)
+;;_setup_themes
+(use-package nord-theme
+  :ensure t
+  :config (load-theme 'nord t))
 (use-package olivetti :ensure t :config (olivetti-mode t))
-    (olivetti-mode 1)        ;; Centers text in the buffer
-    (flyspell-mode 1)   
+(olivetti-mode 1)        ;; Centers text in the buffer
+(flyspell-mode 1)
 
 ;; (use-package kaolin-themes
 ;;   :ensure t
@@ -85,10 +86,10 @@
 ;;   :ensure t
 ;;   :config (zoom-mode t))
 
-(use-package golden-ratio
-  :ensure t
-  :diminish golden-ratio-mode
-  :config (golden-ratio-mode t))
+;; (use-package golden-ratio
+;;   :ensure t
+;;   :diminish golden-ratio-mode
+;;   :config (golden-ratio-mode t))
 
 ;; Emacs package for hiding and/or highlighting the list of minor-modes in the mode-line.
 (use-package rich-minority
@@ -109,7 +110,11 @@
   (global-set-key (kbd "C-h f") #'helpful-callable)
   (global-set-key (kbd "C-h v") #'helpful-variable)
   (global-set-key (kbd "C-h h") #'helpful-at-point)
-  (global-set-key (kbd "C-h k") #'helpful-key))
+  (global-set-key (kbd "C-h k") #'helpful-key)
+  (define-key xah-fly-h-keymap (kbd "j") 'helpful-function)
+  (define-key xah-fly-h-keymap (kbd "l") 'helpful-variable)
+  (define-key xah-fly-h-keymap (kbd "v") 'helpful-key)
+  )
 
 ;; alpha if you want
 ;;(set-frame-parameter (selected-frame) 'alpha '(90 . 30))
