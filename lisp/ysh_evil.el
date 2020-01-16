@@ -39,8 +39,9 @@
   :config (evil-collection-init))
 
 
-(define-key evil-normal-state-map " " 'counsel-M-x)
-
+;; (define-key evil-normal-state-map " " 'counsel-M-x)
+(define-key evil-normal-state-map ":" 'smex)
+ 
 (use-package evil-magit
   :ensure t
   :demand t)

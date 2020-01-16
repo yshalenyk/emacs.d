@@ -1,3 +1,6 @@
+(use-package ysh_commands
+  :demand t)
+
 ;;; autocomplete
 (use-package company
   :ensure t
@@ -5,7 +8,12 @@
   :init (progn (setq company-idle-delay 0)
 	       (setq company-dabbrev-downcase nil)
 	       (setq company-auto-complete t))
-  :config (global-company-mode))
+  :config
+  (global-company-mode)
+  (define-key company-active-map (kbd "<escape>") 'ysh-commpany-abort-and-command-mode)
+  (define-key company-active-map (kbd "C-n") 'company-select-next-or-abort)
+  (define-key company-active-map (kbd "C-p") 'company-select-previous-or-abort)
+  )
 
 ;;; tooltips
 (use-package company-quickhelp
