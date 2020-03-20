@@ -128,6 +128,7 @@
 (use-package ysh_python)
 (use-package ysh_abbrev)
 (use-package ysh_tools)
+(use-package ysh_semantic)
 
 ;;; TODO: dap-mode
 (provide 'init)
