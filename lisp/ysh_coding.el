@@ -16,9 +16,9 @@
   :hook (prog-mode . rainbow-delimiters-mode))
 
 ;;; syntax checking
-;; (use-package flycheck
-;;   :ensure t
-;;   :hook (prog-mode . flycheck-mode))
+(use-package flycheck
+  :ensure t
+  :hook (prog-mode . flycheck-mode))
 
 
 ;;; better code folding
