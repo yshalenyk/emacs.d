@@ -119,4 +119,7 @@
 (use-package winner
   :config (winner-mode t))
 
+(use-package pass
+  :ensure t)
+
 (provide 'ysh_tools)
