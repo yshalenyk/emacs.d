@@ -20,9 +20,12 @@
 (define-key xah-fly-dot-keymap (kbd "p") 'projectile-switch-project)
 (define-key xah-fly-dot-keymap (kbd "e") 'projectile-run-eshell)
 (define-key xah-fly-dot-keymap (kbd "g") 'projectile-vc)
+(define-key xah-fly-dot-keymap (kbd "v") 'vc-annotate)
+(define-key xah-fly-dot-keymap (kbd "c") 'vc-next-action)
+(define-key xah-fly-dot-keymap (kbd "d") 'vc-diff)
 (define-key xah-fly-dot-keymap (kbd "s") 'projectile-ripgrep)
 (define-key xah-fly-dot-keymap (kbd "t") 'projectile-regenerate-tags)
-
+(define-key xah-fly-dot-keymap (kbd "l") 'vc-print-root-log)
 ;;; git frontend
 (use-package magit
   :hook (magit-mode . xah-fly-insert-mode-activate)
@@ -106,5 +109,14 @@
 (use-package atomic-chrome
   :ensure t
   :config (atomic-chrome-start-server))
+
+(use-package super-save
+  :ensure t
+  :config
+  (super-save-mode t))
+
+
+(use-package winner
+  :config (winner-mode t))
 
 (provide 'ysh_tools)
