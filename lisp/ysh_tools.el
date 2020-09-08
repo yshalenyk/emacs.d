@@ -3,7 +3,6 @@
   :ensure t
   :config (xclip-mode 1))
 
-
 ;; Project management solution
 (use-package projectile
   :delight '(:eval (concat " " (projectile-project-name)))
@@ -15,20 +14,12 @@
   (projectile-mode t)
   )
 
-;; TODO: figure out why keybindings don't set-up in use-package
-(define-key xah-fly-dot-keymap (kbd "f") 'projectile-find-file)
-(define-key xah-fly-dot-keymap (kbd "p") 'projectile-switch-project)
-(define-key xah-fly-dot-keymap (kbd "e") 'projectile-run-eshell)
-(define-key xah-fly-dot-keymap (kbd "g") 'projectile-vc)
-(define-key xah-fly-dot-keymap (kbd "v") 'vc-annotate)
-(define-key xah-fly-dot-keymap (kbd "c") 'vc-next-action)
-(define-key xah-fly-dot-keymap (kbd "d") 'vc-diff)
-(define-key xah-fly-dot-keymap (kbd "s") 'projectile-ripgrep)
-(define-key xah-fly-dot-keymap (kbd "t") 'projectile-regenerate-tags)
-(define-key xah-fly-dot-keymap (kbd "l") 'vc-print-root-log)
 ;;; git frontend
 (use-package magit
-  :hook (magit-mode . xah-fly-insert-mode-activate)
+  :hook
+  (magit-mode . xah-fly-insert-mode-activate)
+  :config
+  (add-hook 'after-save-hook 'magit-after-save-refresh-status t)
   :ensure t)
 
 ;;; pass frontend
@@ -115,11 +106,15 @@
   :config
   (super-save-mode t))
 
-
 (use-package winner
   :config (winner-mode t))
 
 (use-package pass
   :ensure t)
+
+(use-package slime
+  :ensure t
+  :config (setq inferior-lisp-program "sbcl"))
+
 
 (provide 'ysh_tools)

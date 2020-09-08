@@ -7,11 +7,12 @@
 ;;  '(initial-frame-alist (quote ((fullscreen . maximized)))))
 (global-hl-line-mode 1)                 ; highlight current line
 ;; (setq default-frame-alist '((font . "Source Code Pro-12")))
-;; (set-frame-font "Source Code Pro-12")   ; set default font
-(set-frame-font "Noto Mono-10.5" t t)   ; set default font
-(setq default-frame-alist '((font . "Noto Mono-10.5")))
-;; (set-frame-font "Source Code Pro Medium-13" t t)   ; set default font
-;; (setq default-frame-alist '((font . "Source Code Pro Medium-13")))
+(set-frame-font "Source Code Pro-12")   ; set default font
+;; (set-frame-font "Noto Mono-10" t t)   ; set default font
+;; (setq default-frame-alist '((font . "Noto Mono-10")))
+
+(set-frame-font "Source Code Pro Medium-11" t t)   ; set default font
+(setq default-frame-alist '((font . "Source Code Pro Medium-11")))
 
 ;;; Apperiance settings (minimal mode)
 ;;(menu-bar-mode -1)
@@ -20,7 +21,7 @@
 
 
 ;;; additional editing configuration
-(electric-pair-mode 1)
+;; (electric-pair-mode 1)
 (show-paren-mode 1)
 (delete-selection-mode 1)
 (setq-default indent-tabs-mode -1)
@@ -46,9 +47,41 @@
 
 
 ;;_setup_themes
-(use-package nord-theme
+;; (use-package gruvbox-theme
+;;   :ensure t :config (load-theme 'gruvbox t))
+(use-package modus-vivendi-theme
   :ensure t
-  :config (load-theme 'nord t))
+  :config
+  ;; (load-theme 'modus-vivendi t)
+  ;; (setq my-current-theme 'modus-vivendi)
+  )
+
+;; default theme
+(use-package modus-operandi-theme
+  :ensure t
+  :config
+  (load-theme 'modus-operandi t)
+  (setq ysh-current-theme 'modus-vivendi)
+  )
+
+(defun ysh-switch-theme()
+  (interactive)
+  (cond
+   ((eq ysh-current-theme 'modus-vivendi)
+    (load-theme 'modus-operandi)
+    (setq ysh-current-theme 'modus-operandi)
+    )
+   (t
+    (load-theme 'modus-vivendi)
+    (setq ysh-current-theme 'modus-vivendi)
+    )
+   )
+  )
+
+(global-set-key (kbd "<f6>") 'my-switch-theme)
+;; (use-package nord-theme
+;;   :ensure t
+;;   :config (load-theme 'nord t))
 (use-package olivetti :ensure t :config (olivetti-mode t))
 (olivetti-mode 1)        ;; Centers text in the buffer
 (flyspell-mode 1)

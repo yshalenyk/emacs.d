@@ -59,6 +59,8 @@
 
 
 (add-to-list 'load-path "~/.emacs.d/lisp/")
+(add-to-list 'load-path "~/work/xah-fly-keys")
+;; (add-to-list 'load-path "~/.emacs.d/lisp/xah-fly-keys/")
 ;;; the following lines tell emacs where on the internet to look up
 ;;; for new packages.
 (setq package-archives '(("org"       . "https://orgmode.org/elpa/")
@@ -66,6 +68,7 @@
                          ("melpa"     . "https://melpa.org/packages/")
                          ("marmalade" . "https://marmalade-repo.org/packages/")))
 (package-initialize)
+
 
 
 (setq inhibit-startup-screen t)
@@ -86,7 +89,6 @@
   (package-install 'use-package)) ; and install the most recent version of use-package
 
 (require 'use-package) ; guess what this one does too ?
-
 
 
 ;;; auto update packages
@@ -114,22 +116,25 @@
 (global-auto-revert-mode t)
 (global-subword-mode t)
 
-;; load config modules
+;; load config modules(
+
 (use-package fly_keys)
-(use-package ysh_keymap)
+(use-package ysh_keymap
+  :after (fly_keys smartparens))
 ;; (use-package ysh_evil)
 ;; (use-package ysh_viper)
+
 (use-package ysh_ui)
 (use-package ysh_modes)
 (use-package ysh_ido)
 ;; (use-package ysh_search)
 (use-package ysh_coding)
-(use-package ysh_autocomplete)
+;; (use-package ysh_autocomplete)
 (use-package ysh_python)
 (use-package ysh_abbrev)
 (use-package ysh_tools)
 (use-package ysh_semantic)
-
+(use-package ysh_lisp)
 ;;; TODO: dap-mode
 (provide 'init)
 ;;; init.el ends here

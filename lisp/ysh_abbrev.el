@@ -249,7 +249,7 @@
 (use-package abbrev
   :demand
   :config
-  (setq abbrev-file-name "~/.emacs.d/abbrev_defs")
+  (setq abbrev-file-name "~/.emacs.d/abbrevs.el")
   (setq save-abbrevs 'silently)
   (define-key xah-fly-e-keymap (kbd "j") 'expand-jump-to-previous-slot)
   (define-key xah-fly-e-keymap (kbd "k") 'expand-jump-to-next-slot)
@@ -262,7 +262,7 @@
 (expand-add-abbrevs python-mode-abbrev-table python-expand-list)
 (expand-add-abbrevs emacs-lisp-mode-abbrev-table emacs-lisp-expand )
 (expand-add-abbrevs rust-mode-abbrev-table rust-expand-list)
-(expand-add-abbrevs c-mode-abbrev-table c-expand-list)
+;; (expand-add-abbrevs c-mode-abbrev-table c-expand-list)
 
 
 (provide 'ysh_abbrev)
