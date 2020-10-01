@@ -249,7 +249,7 @@
 (use-package abbrev
   :demand
   :config
-  (setq abbrev-file-name "~/.emacs.d/abbrevs.el")
+  (setq abbrev-file-name "~/.config/emacs/abbrevs.el")
   (setq save-abbrevs 'silently)
   (define-key xah-fly-e-keymap (kbd "j") 'expand-jump-to-previous-slot)
   (define-key xah-fly-e-keymap (kbd "k") 'expand-jump-to-next-slot)

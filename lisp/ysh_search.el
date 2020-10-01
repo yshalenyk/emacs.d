@@ -37,7 +37,7 @@
   :ensure t
   :custom
   (prescient-history-length 200)
-  (prescient-save-file "~/.emacs.d/prescient-items")
+  (prescient-save-file "~/.tools/emacs/prescient-items")
   (prescient-filter-method '(literal regexp))
   :config
   (prescient-persist-mode 1))

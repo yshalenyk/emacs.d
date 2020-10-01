@@ -55,7 +55,7 @@
 
 (use-package recentf
   :custom
-  (recentf-save-file "~/.emacs.d/recentf")
+  (recentf-save-file "~/.config/emacs/recentf")
   (recentf-max-menu-items 10)
   (recentf-max-saved-items 200)
   (recentf-show-file-shortcuts-flag nil)

@@ -7,9 +7,9 @@
 (setq delete-old-versions -1 )		; delete excess backup versions silently
 (setq version-control t )		; use version control
 (setq vc-make-backup-files t )		; make backups file even when in version controlled dir
-(setq backup-directory-alist `(("." . "~/.emacs.d/backups")) ) ; which directory to put backups file
+(setq backup-directory-alist `(("." . "~/.config/emacs/backups")) ) ; which directory to put backups file
 (setq vc-follow-symlinks t )				       ; don't ask for confirmation when opening symlinked file
-(setq auto-save-file-name-transforms '((".*" "~/.emacs.d/auto-save-list/" t)) ) ;transform backups file name
+(setq auto-save-file-name-transforms '((".*" "~/.config/emacs/auto-save-list/" t)) ) ;transform backups file name
 (setq inhibit-startup-screen t )	; inhibit useless and old-school startup screen
 (setq ring-bell-function 'ignore )	; silent bell when you make a mistake
 (setq coding-system-for-read 'utf-8 )	; use utf-8 by default
@@ -41,7 +41,7 @@
 (defalias 'man 'woman)
 
 ;;; disable init.el modifying by custom system
-(defvar custom-file-path "~/.emacs.d/custom.el" )
+(defvar custom-file-path "~/.config/emacs/custom.el" )
 (if (not (file-exists-p custom-file-path))
     (write-region "" "" custom-file-path))
 (setq custom-file custom-file-path)
@@ -58,9 +58,9 @@
 (setq package-check-signature nil)   ; allow unsigned
 
 
-(add-to-list 'load-path "~/.emacs.d/lisp/")
-(add-to-list 'load-path "~/work/xah-fly-keys")
-;; (add-to-list 'load-path "~/.emacs.d/lisp/xah-fly-keys/")
+(add-to-list 'load-path "~/.config/emacs/lisp/")
+;;(add-to-list 'load-path "~/work/xah-fly-keys")
+;; (add-to-list 'load-path "~/.config/emacs/lisp/xah-fly-keys/")
 ;;; the following lines tell emacs where on the internet to look up
 ;;; for new packages.
 (setq package-archives '(("org"       . "https://orgmode.org/elpa/")
@@ -134,7 +134,7 @@
 (use-package ysh_abbrev)
 (use-package ysh_tools)
 (use-package ysh_semantic)
-(use-package ysh_lisp)
+;; (use-package ysh_lisp)
 ;;; TODO: dap-mode
 (provide 'init)
 ;;; init.el ends here
