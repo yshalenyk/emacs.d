@@ -12,6 +12,9 @@
 (use-package nix-mode
   :ensure t)
 
+(use-package graphql-mode
+  :ensure t)
+
 (use-package nginx-mode
   :ensure t)
 
@@ -19,6 +22,9 @@
   :ensure t)
 
 (use-package dart-mode
+  :ensure t)
+
+(use-package vue-mode
   :ensure t)
 
 (provide 'ysh_modes)
