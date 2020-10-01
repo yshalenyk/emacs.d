@@ -1,166 +1,90 @@
 ;;-*-coding: utf-8;-*-
-(define-abbrev-table 'Buffer-menu-mode-abbrev-table '())
-
-(define-abbrev-table 'Custom-mode-abbrev-table '())
-
-(define-abbrev-table 'Info-edit-mode-abbrev-table '())
-
-(define-abbrev-table 'comint-mode-abbrev-table '())
-
-(define-abbrev-table 'completion-list-mode-abbrev-table '())
-
 (define-abbrev-table 'css-mode-abbrev-table
   '(
-    ("bg" "background-color: $;" nil 0)
-    ("bor" "border: $;" nil 0)
-    ("ff" "font-family: $;" nil 0)
-    ("fs" "font-size: $;" nil 0)
+    ("bg" "background-color: $;" nil :count 0)
+    ("bor" "border: $;" nil :count 0)
+    ("ff" "font-family: $;" nil :count 0)
+    ("fs" "font-size: $;" nil :count 0)
    ))
-
-(define-abbrev-table 'dart-mode-abbrev-table '())
-
-(define-abbrev-table 'diff-mode-abbrev-table '())
-
-(define-abbrev-table 'edebug-eval-mode-abbrev-table '())
-
-(define-abbrev-table 'edit-abbrevs-mode-abbrev-table '())
-
-(define-abbrev-table 'elisp-byte-code-mode-abbrev-table '())
-
-(define-abbrev-table 'elisp-refs-mode-abbrev-table '())
 
 (define-abbrev-table 'emacs-lisp-mode-abbrev-table
   '(
     ("aut" ["(autoload ' \"\" t t)
-" 9 (20 12 14) nil] expand-abbrev-hook 0)
+" 9 (20 12 14) nil] expand-abbrev-hook :count 0)
     ("defa" ["(defadvice   (around   act)
   \"\"
   
-  )" 28 (39 12 22 32 36) nil] expand-abbrev-hook 0)
+  )" 28 (39 12 22 32 36) nil] expand-abbrev-hook :count 0)
     ("defc" ["(defconst   nil
   \"\")
-" 12 (22 11 13 20) nil] expand-abbrev-hook 0)
+" 12 (22 11 13 20) nil] expand-abbrev-hook :count 0)
     ("defm" ["(defmacro  ()
   \"\"
   `( 
-    ))" 21 (31 11 13 18 25) nil] expand-abbrev-hook 0)
+    ))" 21 (31 11 13 18 25) nil] expand-abbrev-hook :count 0)
     ("defs" ["(defsubst   ()
   \"\"
   (interactive)
-  )" 29 (39 11 14 19 23 39) nil] expand-abbrev-hook 0)
+  )" 29 (39 11 14 19 23 39) nil] expand-abbrev-hook :count 0)
     ("defu" ["(defun   ()
   \"\"
   (interactive)
   (let* (
          )
     
-    ))" 58 (65 8 11 16 32 43 59) nil] expand-abbrev-hook 0)
+    ))" 58 (65 8 11 16 32 43 59) nil] expand-abbrev-hook :count 0)
     ("defv" ["(defvar   nil
   \"\")
-" 12 (20 9 11 18) nil] expand-abbrev-hook 0)
+" 12 (20 9 11 18) nil] expand-abbrev-hook :count 0)
     ("let" ["(let* (
 )
-    " 7 (14 8 13) nil] expand-abbrev-hook 0)
+    " 7 (14 8 13) nil] expand-abbrev-hook :count 0)
     ("sav" ["(save-excursion
  
-)" 2 (19 18) nil] expand-abbrev-hook 0)
+)" 2 (19 18) nil] expand-abbrev-hook :count 0)
    ))
-
-(define-abbrev-table 'epa-info-mode-abbrev-table '())
-
-(define-abbrev-table 'epa-key-list-mode-abbrev-table '())
-
-(define-abbrev-table 'epa-key-mode-abbrev-table '())
-
-(define-abbrev-table 'fundamental-mode-abbrev-table '())
-
-(define-abbrev-table 'global-abbrev-table '())
-
-(define-abbrev-table 'go-dot-mod-mode-abbrev-table '())
-
-(define-abbrev-table 'go-mode-abbrev-table '())
-
-(define-abbrev-table 'godoc-mode-abbrev-table '())
-
-(define-abbrev-table 'grep-mode-abbrev-table '())
-
-(define-abbrev-table 'hcl-mode-abbrev-table '())
-
-(define-abbrev-table 'help-mode-abbrev-table '())
-
-(define-abbrev-table 'helpful-mode-abbrev-table '())
-
-(define-abbrev-table 'html-mode-abbrev-table '())
-
-(define-abbrev-table 'ibuffer-mode-abbrev-table '())
-
-(define-abbrev-table 'inferior-python-mode-abbrev-table '())
-
-(define-abbrev-table 'lisp-mode-abbrev-table '())
-
-(define-abbrev-table 'magit-popup-mode-abbrev-table '())
-
-(define-abbrev-table 'message-mode-abbrev-table '())
-
-(define-abbrev-table 'messages-buffer-mode-abbrev-table '())
-
-(define-abbrev-table 'nginx-mode-abbrev-table '())
-
-(define-abbrev-table 'nix-repl-mode-abbrev-table '())
-
-(define-abbrev-table 'nxml-mode-abbrev-table '())
-
-(define-abbrev-table 'occur-edit-mode-abbrev-table '())
-
-(define-abbrev-table 'occur-mode-abbrev-table '())
-
-(define-abbrev-table 'package-menu-mode-abbrev-table '())
-
-(define-abbrev-table 'process-menu-mode-abbrev-table '())
-
-(define-abbrev-table 'prog-mode-abbrev-table '())
 
 (define-abbrev-table 'python-mode-abbrev-table
   '(
-    ("_utf" ["# -*- coding: utf-8 -*-" 0 nil nil] expand-abbrev-hook 0)
-    ("arg" ["parser.add_argument(, )" 3 (23 21 23) nil] expand-abbrev-hook 0)
-    ("ass" ["assert " 0 nil nil] expand-abbrev-hook 0)
+    ("_utf" ["# -*- coding: utf-8 -*-" 0 nil nil] expand-abbrev-hook :count 0)
+    ("arg" ["parser.add_argument(, )" 3 (23 21 23) nil] expand-abbrev-hook :count 0)
+    ("ass" ["assert " 0 nil nil] expand-abbrev-hook :count 0)
     ("cls" ["class ():
 ''''''
     def __init__(self):
-''''''" 41 (47 7 8 14 39 45) nil] expand-abbrev-hook 0)
-    ("dc" ["{ for  in }" 10 (11 2 7 11) nil] expand-abbrev-hook 0)
+''''''" 41 (47 7 8 14 39 45) nil] expand-abbrev-hook :count 0)
+    ("dc" ["{ for  in }" 10 (11 2 7 11) nil] expand-abbrev-hook :count 0)
     ("def" ["def ():
 ''''''
-" 11 (15 5 6 12 17) nil] expand-abbrev-hook 0)
+" 11 (15 5 6 12 17) nil] expand-abbrev-hook :count 0)
     ("deft" ["def test_():
-    " 8 (17 10 11 16) nil] expand-abbrev-hook 0)
-    ("false" ["False" 0 nil nil] expand-abbrev-hook 0)
+    " 8 (17 10 11 16) nil] expand-abbrev-hook :count 0)
+    ("false" ["False" 0 nil nil] expand-abbrev-hook :count 0)
     ("for" ["for  in :
-    " 10 (14 5 9 15) nil] expand-abbrev-hook 0)
-    ("from" ["from  import " 8 (13 6 14) nil] expand-abbrev-hook 0)
+    " 10 (14 5 9 15) nil] expand-abbrev-hook :count 0)
+    ("from" ["from  import " 8 (13 6 14) nil] expand-abbrev-hook :count 0)
     ("if" ["if :
-    " 6 (9 4 9) nil] expand-abbrev-hook 0)
+    " 6 (9 4 9) nil] expand-abbrev-hook :count 0)
     ("ife" ["if :
     
 else:
-    " 17 (20 4 9 21) nil] expand-abbrev-hook 0)
+    " 17 (20 4 9 21) nil] expand-abbrev-hook :count 0)
     ("ifmain" ["if __name__ == '__main__':
-    " 3 nil nil] expand-abbrev-hook 0)
-    ("imp" ["import " 0 nil nil] expand-abbrev-hook 0)
-    ("ipdb" ["import ipdb; ipdb.set_trace()" 0 nil nil] expand-abbrev-hook 0)
-    ("lambda" ["lambda :" 1 nil nil] expand-abbrev-hook 0)
-    ("lc" ["[ for  in ]" 10 (11 2 7 11) nil] expand-abbrev-hook 0)
-    ("lci" ["{ for  in  if }" 14 (15 2 7 11 15) nil] expand-abbrev-hook 0)
-    ("log" ["logger = logging.getLogger()" 1 nil nil] expand-abbrev-hook 0)
+    " 3 nil nil] expand-abbrev-hook :count 0)
+    ("imp" ["import " 0 nil nil] expand-abbrev-hook :count 0)
+    ("ipdb" ["import ipdb; ipdb.set_trace()" 0 nil nil] expand-abbrev-hook :count 0)
+    ("lambda" ["lambda :" 1 nil nil] expand-abbrev-hook :count 0)
+    ("lc" ["[ for  in ]" 10 (11 2 7 11) nil] expand-abbrev-hook :count 0)
+    ("lci" ["{ for  in  if }" 14 (15 2 7 11 15) nil] expand-abbrev-hook :count 0)
+    ("log" ["logger = logging.getLogger()" 1 nil nil] expand-abbrev-hook :count 0)
     ("pargs" ["def parse_arguments():
     parser = argparse.ArgumentParser(description='')
-    return parser.parse_args()" 33 nil nil] expand-abbrev-hook 0)
-    ("pdb" ["import pdb; pdb.set_trace()" 0 nil nil] expand-abbrev-hook 0)
-    ("pri" ["print()" 1 nil nil] expand-abbrev-hook 0)
-    ("ret" ["return " 0 nil nil] expand-abbrev-hook 0)
-    ("sa" ["self. = " 3 (8 6 9) nil] expand-abbrev-hook 0)
-    ("se" ["self." 0 nil nil] expand-abbrev-hook 0)
+    return parser.parse_args()" 33 nil nil] expand-abbrev-hook :count 0)
+    ("pdb" ["import pdb; pdb.set_trace()" 0 nil nil] expand-abbrev-hook :count 0)
+    ("pri" ["print()" 1 nil nil] expand-abbrev-hook :count 0)
+    ("ret" ["return " 0 nil nil] expand-abbrev-hook :count 0)
+    ("sa" ["self. = " 3 (8 6 9) nil] expand-abbrev-hook :count 0)
+    ("se" ["self." 0 nil nil] expand-abbrev-hook :count 0)
     ("setup" [(concat "from setuptools import setup
 
 " "package = ''
@@ -169,62 +93,56 @@ else:
 " "setup(name=package,
 " "      version=version,
 " "      description='',
-" "      url='')") -35 (8 44 58) nil] expand-abbrev-hook 0)
-    ("true" ["True" 0 nil nil] expand-abbrev-hook 0)
+" "      url='')") -35 (8 44 58) nil] expand-abbrev-hook :count 0)
+    ("true" ["True" 0 nil nil] expand-abbrev-hook :count 0)
     ("try" ["try:
     
 except  as e:
-    " 20 (28 9 18 28) nil] expand-abbrev-hook 0)
+    " 20 (28 9 18 28) nil] expand-abbrev-hook :count 0)
     ("wh" ["while :
-    " 6 (12 7 13) nil] expand-abbrev-hook 0)
+    " 6 (12 7 13) nil] expand-abbrev-hook :count 0)
     ("wi" ["with :
-    " 6 (11 6 13) nil] expand-abbrev-hook 0)
+    " 6 (11 6 13) nil] expand-abbrev-hook :count 0)
     ("wia" ["with  as :
-    " 10 (15 6 10 17) nil] expand-abbrev-hook 0)
+    " 10 (15 6 10 17) nil] expand-abbrev-hook :count 0)
    ))
-
-(define-abbrev-table 'python-mode-skeleton-abbrev-table
-  '(
-   ))
-
-(define-abbrev-table 'ruby-mode-abbrev-table '())
 
 (define-abbrev-table 'rust-mode-abbrev-table
   '(
-    ("allow" ["#[allow()]" 2 nil nil] expand-abbrev-hook 0)
-    ("ass" ["assert!();" 2 nil nil] expand-abbrev-hook 0)
-    ("asse" ["assert_eq!();" 2 nil nil] expand-abbrev-hook 0)
-    ("cfg" ["#[cfg()]" 2 nil nil] expand-abbrev-hook 0)
-    ("cfgv" ["#[cfg( = \"\")]" 7 (13 7 11) nil] expand-abbrev-hook 0)
-    ("deri" ["#[derive()]" 2 nil nil] expand-abbrev-hook 0)
+    ("allow" ["#[allow()]" 2 nil nil] expand-abbrev-hook :count 0)
+    ("ass" ["assert!();" 2 nil nil] expand-abbrev-hook :count 0)
+    ("asse" ["assert_eq!();" 2 nil nil] expand-abbrev-hook :count 0)
+    ("cfg" ["#[cfg()]" 2 nil nil] expand-abbrev-hook :count 0)
+    ("cfgv" ["#[cfg( = \"\")]" 7 (13 7 11) nil] expand-abbrev-hook :count 0)
+    ("deri" ["#[derive()]" 2 nil nil] expand-abbrev-hook :count 0)
     ("display" ["impl Display for  {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         write!(f, \"\")
     }
-}" 91 (108 18 99) nil] expand-abbrev-hook 0)
+}" 91 (108 18 99) nil] expand-abbrev-hook :count 0)
     ("enum" ["enum  {
 
-}" 5 (10 6 9) nil] expand-abbrev-hook 0)
-    ("epr" ["eprint!(\"\", );" 5 (14 10 13) nil] expand-abbrev-hook 0)
-    ("eprl" ["eprintln!(\"\", );" 5 (16 12 15) nil] expand-abbrev-hook 0)
-    ("err" ["Err()" 1 nil nil] expand-abbrev-hook 0)
+}" 5 (10 6 9) nil] expand-abbrev-hook :count 0)
+    ("epr" ["eprint!(\"\", );" 5 (14 10 13) nil] expand-abbrev-hook :count 0)
+    ("eprl" ["eprintln!(\"\", );" 5 (16 12 15) nil] expand-abbrev-hook :count 0)
+    ("err" ["Err()" 1 nil nil] expand-abbrev-hook :count 0)
     ("fn" ["fn () ->  {
 
-}" 11 (14 4 5 10 13) nil] expand-abbrev-hook 0)
+}" 11 (14 4 5 10 13) nil] expand-abbrev-hook :count 0)
     ("fnn" ["fn () {
 
-}" 7 (10 4 5 9) nil] expand-abbrev-hook 0)
+}" 7 (10 4 5 9) nil] expand-abbrev-hook :count 0)
     ("fnt" ["fn <T>(x: T) where T: Clone-> _ {
-}" 32 (35 4) nil] expand-abbrev-hook 0)
+}" 32 (35 4) nil] expand-abbrev-hook :count 0)
     ("for" ["for  in  {
 
-}" 9 (13 5 9 12) nil] expand-abbrev-hook 0)
+}" 9 (13 5 9 12) nil] expand-abbrev-hook :count 0)
     ("from" ["impl From<> for  {
     fn from(source: ) -> Self {
        Self {}
     }
 }
-" 64 (74 11 17 40 65) nil] expand-abbrev-hook 0)
+" 64 (74 11 17 40 65) nil] expand-abbrev-hook :count 0)
     ("fromstr" ["impl FromStr for  {
     type Err = Error;
 
@@ -232,130 +150,102 @@ except  as e:
         Ok(Self{})
     }
 }
-" 107 (124 18 114) nil] expand-abbrev-hook 0)
+" 107 (124 18 114) nil] expand-abbrev-hook :count 0)
     ("if" ["if  {
 
 } else {
 
-}" 15 (18 4 7 17) nil] expand-abbrev-hook 0)
+}" 15 (18 4 7 17) nil] expand-abbrev-hook :count 0)
     ("ifl" ["if let  =  {
 
-}" 8 (15 8 11 14) nil] expand-abbrev-hook 0)
+}" 8 (15 8 11 14) nil] expand-abbrev-hook :count 0)
     ("ifn" ["if  {
 
-}" 5 (8 4 7) nil] expand-abbrev-hook 0)
+}" 5 (8 4 7) nil] expand-abbrev-hook :count 0)
     ("impl" ["impl  {
 
-}" 5 (10 6 9) nil] expand-abbrev-hook 0)
+}" 5 (10 6 9) nil] expand-abbrev-hook :count 0)
     ("implf" ["impl  for  {
 
-}" 10 (15 6 11 14) nil] expand-abbrev-hook 0)
+}" 10 (15 6 11 14) nil] expand-abbrev-hook :count 0)
     ("lam" ["|| {
 
-}" 6 (7 2 6) nil] expand-abbrev-hook 0)
-    ("let" ["let  = ;" 4 (8 5 8) nil] expand-abbrev-hook 0)
-    ("letm" ["let mut  = ;" 4 (12 9 12) nil] expand-abbrev-hook 0)
+}" 6 (7 2 6) nil] expand-abbrev-hook :count 0)
+    ("let" ["let  = ;" 4 (8 5 8) nil] expand-abbrev-hook :count 0)
+    ("letm" ["let mut  = ;" 4 (12 9 12) nil] expand-abbrev-hook :count 0)
     ("loop" ["loop {
 
-}" 2 nil nil] expand-abbrev-hook 0)
+}" 2 nil nil] expand-abbrev-hook :count 0)
     ("macro" ["macro_rules!  {
      () => ();
-}" 19 (32 14 23 29) nil] expand-abbrev-hook 0)
+}" 19 (32 14 23 29) nil] expand-abbrev-hook :count 0)
     ("main" ["fn main() {
 
-}" 2 nil nil] expand-abbrev-hook 0)
+}" 2 nil nil] expand-abbrev-hook :count 0)
     ("match" ["match  {
 
-}" 5 (11 7 10) nil] expand-abbrev-hook 0)
+}" 5 (11 7 10) nil] expand-abbrev-hook :count 0)
     ("new" ["pub fn new() -> Self {
 
-}" 14 (25 12 17 20) nil] expand-abbrev-hook 0)
-    ("ok" ["Ok()" 1 nil nil] expand-abbrev-hook 0)
-    ("p" ["pub " 0 nil nil] expand-abbrev-hook 0)
-    ("pr" ["print!(\"\", );" 5 (13 9 12) nil] expand-abbrev-hook 0)
-    ("prl" ["println!(\"\", );" 5 (15 11 14) nil] expand-abbrev-hook 0)
-    ("res" ["Result<, failure::Error>" 17 nil nil] expand-abbrev-hook 0)
-    ("resu" ["Result<, failure::Error>" 17 nil nil] expand-abbrev-hook 0)
-    ("some" ["Some()" 1 nil nil] expand-abbrev-hook 0)
-    ("static" ["static :  = ;" 6 (13 8 10 13) nil] expand-abbrev-hook 0)
+}" 14 (25 12 17 20) nil] expand-abbrev-hook :count 0)
+    ("ok" ["Ok()" 1 nil nil] expand-abbrev-hook :count 0)
+    ("p" ["pub " 0 nil nil] expand-abbrev-hook :count 0)
+    ("pr" ["print!(\"\", );" 5 (13 9 12) nil] expand-abbrev-hook :count 0)
+    ("prl" ["println!(\"\", );" 5 (15 11 14) nil] expand-abbrev-hook :count 0)
+    ("res" ["Result<, failure::Error>" 17 nil nil] expand-abbrev-hook :count 0)
+    ("resu" ["Result<, failure::Error>" 17 nil nil] expand-abbrev-hook :count 0)
+    ("some" ["Some()" 1 nil nil] expand-abbrev-hook :count 0)
+    ("static" ["static :  = ;" 6 (13 8 10 13) nil] expand-abbrev-hook :count 0)
     ("struct" ["struct  {
 
-}" 5 (12 8 11) nil] expand-abbrev-hook 0)
+}" 5 (12 8 11) nil] expand-abbrev-hook :count 0)
     ("test" ["#[test]
 fn test_() {
 
-}" 7 (23 17 22) nil] expand-abbrev-hook 0)
+}" 7 (23 17 22) nil] expand-abbrev-hook :count 0)
     ("testm" ["#[cfg(test)]
 mod  {
     use super::*;
 
-}" 23 (40 18 39) nil] expand-abbrev-hook 0)
+}" 23 (40 18 39) nil] expand-abbrev-hook :count 0)
     ("trait" ["trait  {
 
-}" 5 (11 7 10) nil] expand-abbrev-hook 0)
-    ("type" ["type  = ;" 4 (9 6 9) nil] expand-abbrev-hook 0)
+}" 5 (11 7 10) nil] expand-abbrev-hook :count 0)
+    ("type" ["type  = ;" 4 (9 6 9) nil] expand-abbrev-hook :count 0)
     ("union" ["union  {
 
-}" 5 (11 7 10) nil] expand-abbrev-hook 0)
-    ("warn" ["#[warn()]" 2 nil nil] expand-abbrev-hook 0)
+}" 5 (11 7 10) nil] expand-abbrev-hook :count 0)
+    ("warn" ["#[warn()]" 2 nil nil] expand-abbrev-hook :count 0)
     ("whl" ["while  {
 
-}" 5 (11 7 10) nil] expand-abbrev-hook 0)
+}" 5 (11 7 10) nil] expand-abbrev-hook :count 0)
     ("whll" ["while let  =  {
 
-}" 8 (18 11 14 17) nil] expand-abbrev-hook 0)
+}" 8 (18 11 14 17) nil] expand-abbrev-hook :count 0)
    ))
-
-(define-abbrev-table 'select-tags-table-mode-abbrev-table '())
-
-(define-abbrev-table 'sgml-mode-abbrev-table '())
-
-(define-abbrev-table 'shell-mode-abbrev-table '())
-
-(define-abbrev-table 'special-mode-abbrev-table '())
-
-(define-abbrev-table 'tabulated-list-mode-abbrev-table '())
-
-(define-abbrev-table 'tar-mode-abbrev-table '())
 
 (define-abbrev-table 'terraform-mode-abbrev-table
   '(
     ("data" ["data \"\" \"\" {
   
-}" 11 (17 7 10 14) nil] expand-abbrev-hook 0)
+}" 11 (17 7 10 14) nil] expand-abbrev-hook :count 0)
     ("loc" ["locals {
 
-}" 2 nil nil] expand-abbrev-hook 0)
+}" 2 nil nil] expand-abbrev-hook :count 0)
     ("mod" ["module \"\" {
   source = \"\"
-}" 19 (27 9 25) nil] expand-abbrev-hook 0)
+}" 19 (27 9 25) nil] expand-abbrev-hook :count 0)
     ("out" ["output \"\" {
   value = 
-}" 16 (24 9 23) nil] expand-abbrev-hook 0)
+}" 16 (24 9 23) nil] expand-abbrev-hook :count 0)
     ("prov" ["provider \"\"  {
   
-}" 9 (19 11 18) nil] expand-abbrev-hook 0)
+}" 9 (19 11 18) nil] expand-abbrev-hook :count 0)
     ("res" ["resource \"\" \"\" {
   
-}" 11 (21 11 14 19) nil] expand-abbrev-hook 0)
+}" 11 (21 11 14 19) nil] expand-abbrev-hook :count 0)
     ("var" ["variable \"\" {
   type = 
-}" 15 (25 11 24) nil] expand-abbrev-hook 0)
+}" 15 (25 11 24) nil] expand-abbrev-hook :count 0)
    ))
-
-(define-abbrev-table 'text-mode-abbrev-table '())
-
-(define-abbrev-table 'url-cookie-mode-abbrev-table '())
-
-(define-abbrev-table 'use-package-statistics-mode-abbrev-table '())
-
-(define-abbrev-table 'vc-git-log-edit-mode-abbrev-table '())
-
-(define-abbrev-table 'vc-git-log-view-mode-abbrev-table '())
-
-(define-abbrev-table 'vc-git-region-history-mode-abbrev-table '())
-
-(define-abbrev-table 'xref--xref-buffer-mode-abbrev-table '())
-
-(define-abbrev-table 'yaml-mode-abbrev-table '())
 
