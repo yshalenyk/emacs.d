@@ -15,7 +15,7 @@
 (setq default-frame-alist '((font . "Source Code Pro Medium-11")))
 
 ;;; Apperiance settings (minimal mode)
-;;(menu-bar-mode -1)
+(menu-bar-mode -1)
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
 
