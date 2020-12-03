@@ -1,5 +1,7 @@
 
 ;;; additional languages
+(use-package rustic :ensure t)
+
 (use-package rust-mode
   :ensure t)
 
