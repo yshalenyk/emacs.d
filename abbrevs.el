@@ -13,14 +13,14 @@
 " 9 (20 12 14) nil] expand-abbrev-hook :count 0)
     ("defa" ["(defadvice   (around   act)
   \"\"
-  
+
   )" 28 (39 12 22 32 36) nil] expand-abbrev-hook :count 0)
     ("defc" ["(defconst   nil
   \"\")
 " 12 (22 11 13 20) nil] expand-abbrev-hook :count 0)
     ("defm" ["(defmacro  ()
   \"\"
-  `( 
+  `(
     ))" 21 (31 11 13 18 25) nil] expand-abbrev-hook :count 0)
     ("defs" ["(defsubst   ()
   \"\"
@@ -31,7 +31,7 @@
   (interactive)
   (let* (
          )
-    
+
     ))" 58 (65 8 11 16 32 43 59) nil] expand-abbrev-hook :count 0)
     ("defv" ["(defvar   nil
   \"\")
@@ -40,7 +40,7 @@
 )
     " 7 (14 8 13) nil] expand-abbrev-hook :count 0)
     ("sav" ["(save-excursion
- 
+
 )" 2 (19 18) nil] expand-abbrev-hook :count 0)
    ))
 
@@ -66,7 +66,7 @@
     ("if" ["if :
     " 6 (9 4 9) nil] expand-abbrev-hook :count 0)
     ("ife" ["if :
-    
+
 else:
     " 17 (20 4 9 21) nil] expand-abbrev-hook :count 0)
     ("ifmain" ["if __name__ == '__main__':
@@ -96,7 +96,7 @@ else:
 " "      url='')") -35 (8 44 58) nil] expand-abbrev-hook :count 0)
     ("true" ["True" 0 nil nil] expand-abbrev-hook :count 0)
     ("try" ["try:
-    
+
 except  as e:
     " 20 (28 9 18 28) nil] expand-abbrev-hook :count 0)
     ("wh" ["while :
@@ -115,6 +115,7 @@ except  as e:
     ("cfg" ["#[cfg()]" 2 nil nil] expand-abbrev-hook :count 0)
     ("cfgv" ["#[cfg( = \"\")]" 7 (13 7 11) nil] expand-abbrev-hook :count 0)
     ("deri" ["#[derive()]" 2 nil nil] expand-abbrev-hook :count 0)
+    ("derive" ["#[derive()]" 2 nil nil] expand-abbrev-hook :count 0)
     ("display" ["impl Display for  {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         write!(f, \"\")
@@ -227,7 +228,7 @@ mod  {
 (define-abbrev-table 'terraform-mode-abbrev-table
   '(
     ("data" ["data \"\" \"\" {
-  
+
 }" 11 (17 7 10 14) nil] expand-abbrev-hook :count 0)
     ("loc" ["locals {
 
@@ -236,16 +237,16 @@ mod  {
   source = \"\"
 }" 19 (27 9 25) nil] expand-abbrev-hook :count 0)
     ("out" ["output \"\" {
-  value = 
+  value =
 }" 16 (24 9 23) nil] expand-abbrev-hook :count 0)
     ("prov" ["provider \"\"  {
-  
+
 }" 9 (19 11 18) nil] expand-abbrev-hook :count 0)
     ("res" ["resource \"\" \"\" {
-  
+
 }" 11 (21 11 14 19) nil] expand-abbrev-hook :count 0)
     ("var" ["variable \"\" {
-  type = 
+  type =
 }" 15 (25 11 24) nil] expand-abbrev-hook :count 0)
    ))
 
