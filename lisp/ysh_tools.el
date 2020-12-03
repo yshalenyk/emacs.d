@@ -16,8 +16,8 @@
 
 ;;; git frontend
 (use-package magit
-  :hook
-  (magit-mode . xah-fly-insert-mode-activate)
+;  :hook
+ ; (magit-mode . xah-fly-insert-mode-activate)
   :config
   (add-hook 'after-save-hook 'magit-after-save-refresh-status t)
   :ensure t)
@@ -79,7 +79,6 @@
 		  (ibuffer-do-sort-by-alphabetic)))))
   )
 
-
 (use-package uniquify
   :config
   (setq uniquify-buffer-name-style 'reverse)
@@ -112,9 +111,24 @@
 (use-package pass
   :ensure t)
 
-(use-package slime
+(use-package dashboard
   :ensure t
-  :config (setq inferior-lisp-program "sbcl"))
+  :config
+  (dashboard-setup-startup-hook))
+
+
+;; terminal
+(use-package vterm
+  :ensure t)
+
+;; debugger support
+;; TODO: chekc me out!
+(use-package realgud
+  :ensure t)
+
+;; (use-package slime
+;;   :ensure t
+;;   :config (setq inferior-lisp-program "sbcl"))
 
 
 (provide 'ysh_tools)
