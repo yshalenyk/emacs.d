@@ -100,9 +100,10 @@
     ("ass" "assert!();" 9)
     ("asse" "assert_eq!();" 12)
     ("cfg" "#[cfg()]" 7)
+    ("derive" "#[derive()]" 10)
     ("cfgv" "#[cfg( = \"\")]" (7 11))
     ;; TODO: || doesnt expand
-    ("lam" "|| {\n\n}" (2 6))
+    ;; ("lam" "|| {\n\n}" (2 6))
     ("deri" "#[derive()]" 10)
     (
      "display"
@@ -251,8 +252,8 @@
   :config
   (setq abbrev-file-name "~/.config/emacs/abbrevs.el")
   (setq save-abbrevs 'silently)
-  (define-key xah-fly-e-keymap (kbd "j") 'expand-jump-to-previous-slot)
-  (define-key xah-fly-e-keymap (kbd "k") 'expand-jump-to-next-slot)
+;  (define-key xah-fly-e-keymap (kbd "j") 'expand-jump-to-previous-slot)
+;  (define-key xah-fly-e-keymap (kbd "k") 'expand-jump-to-next-slot)
   (add-hook 'expand-expand-hook 'indent-according-to-mode)
   (add-hook 'expand-jump-hook 'indent-according-to-mode)
   (setq-default abbrev-mode t)
