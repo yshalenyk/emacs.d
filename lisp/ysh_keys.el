@@ -21,9 +21,10 @@
 (define-key key-translation-map (kbd "M-n") (kbd "M-t"))
 (define-key key-translation-map (kbd "M-t") (kbd "M-n"))
 
-;; they are unused
-(define-key key-translation-map (kbd "M-p") (kbd "M-n"))
-(define-key key-translation-map (kbd "M-n") (kbd "M-p"))
+;;(define-key key-translation-map (kbd "M-p") (kbd "M-n"))
+;;(define-key key-translation-map (kbd "M-n") (kbd "M-p"))
+(global-set-key (kbd "M-p") 'scroll-down-command)
+(global-set-key (kbd "M-n") 'scroll-up-command)
 
 (define-key key-translation-map (kbd "M-h") (kbd "M-b"))
 (define-key key-translation-map (kbd "M-b") (kbd "M-s"))
@@ -38,8 +39,15 @@
 
 ;; Global keys
 (global-set-key (kbd "C-x C-b") 'ibuffer)
+(global-set-key (kbd "C-s") 'swiper)
 
 (provide 'ysh_keys)
+
+
+
+
+
+
 
 
 
