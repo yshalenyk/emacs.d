@@ -18,7 +18,10 @@
 ;; (setq-default default-fill-column 80)	; toggle wrapping text at the 80th character
 (setq initial-scratch-message "Welcome in Emacs") ; print a default message in the empty scratch buffer opened at startup
 (defalias 'yes-or-no-p 'y-or-n-p)       ; must have
+;; (setq mode-line-format nil)
 
+;; won’t have to reach for the return key to add newlines
+(setq next-line-add-newlines t)
 
 ;; (setq-default package-check-signature nil)
 ;; use gpg2
@@ -118,23 +121,27 @@
 
 ;; load config modules(
 
-(use-package fly_keys)
-(use-package ysh_keymap
-  :after (fly_keys smartparens))
-;; (use-package ysh_evil)
+;; (use-package fly_keys)
+;; (use-package ysh_keymap
+;; :after (fly_keys smartparens))
 ;; (use-package ysh_viper)
 
 (use-package ysh_ui)
 (use-package ysh_modes)
-(use-package ysh_ido)
-;; (use-package ysh_search)
+;; (use-package ysh_ido)
+(use-package ysh_search)
 (use-package ysh_coding)
-;; (use-package ysh_autocomplete)
+(use-package ysh_semantic)
+(use-package ysh_autocomplete)
 (use-package ysh_python)
 (use-package ysh_abbrev)
 (use-package ysh_tools)
 (use-package ysh_semantic)
 ;; (use-package ysh_lisp)
+(use-package ysh_lisp)
+(use-package ysh_keys)
+
+;;(use-package ysh_evil)
 ;;; TODO: dap-mode
 (provide 'init)
 ;;; init.el ends here

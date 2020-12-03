@@ -1,20 +1,23 @@
-;;; fuzzy finder (use-package ivy ;; TODO: ivy keymap IMPORTANT ;; https://github.com/abo-abo/swiper/blob/master/ivy.el#L409 :demand :diminish ivy-mode :custom (ivy-use-virtual-buffers t) (ivy-height 15) (enable-recursive-minibuffers t)
+;;; fuzzy finder
+(use-package ivy ;; TODO: ivy keymap IMPORTANT ;; https://github.com/abo-abo/swiper/blob/master/ivy.el#L409
+  :demand
+  :diminish ivy-mode
+  :custom (ivy-use-virtual-buffers t) (ivy-height 15) (enable-recursive-minibuffers t)
+  (ivy-re-builders-alist
+   '((swiper . ivy--regex-plus)
+     (t      . ivy--regex-fuzzy)))
 
-(ivy-re-builders-alist
- '((swiper . ivy--regex-plus)
-   (t      . ivy--regex-fuzzy)))
-
-(ivy-initial-inputs-alist
- '((counsel-M-x . "")
-   (counsel-fzf . "")
-   (counsel-rg . "")
-   (swiper . "")
-   (t . "^")))
-:config
-;; TODO: wgrep
-(use-package wgrep :ensure t)
-(ivy-mode t)
-)
+  (ivy-initial-inputs-alist
+   '((counsel-M-x . "")
+     (counsel-fzf . "")
+     (counsel-rg . "")
+     (swiper . "")
+     (t . "^")))
+  :config
+  ;; TODO: wgrep
+  (use-package wgrep :ensure t)
+  (ivy-mode t)
+  )
 
 (use-package counsel
   :after (ivy)
@@ -25,12 +28,12 @@
   (counsel-describe-variable-function #'helpful-variable)
   :config
   ;; TODO: more consistent keybindings
-  (global-set-key (kbd "<f2> l") 'counsel-find-library)
-  (global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
-  (global-set-key (kbd "<f2> u") 'counsel-unicode-char)
-  (global-set-key (kbd "C-c s") 'swiper)
-  (global-set-key (kbd "C-c g") 'counsel-rg)
-  (global-set-key (kbd "C-c l") 'counsel-locate)
+  ;; (global-set-key (kbd "<f2> l") 'counsel-find-library)
+  ;; (global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
+  ;; (global-set-key (kbd "<f2> u") 'counsel-unicode-char)
+  ;; (global-set-key (kbd "C-c s") 'swiper)
+  ;; (global-set-key (kbd "C-c g") 'counsel-rg)
+  ;; (global-set-key (kbd "C-c l") 'counsel-locate)
   (counsel-mode t))
 
 (use-package prescient
