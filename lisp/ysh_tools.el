@@ -32,9 +32,9 @@
 ;;   :config (global-set-key [(mouse-1)] 'acme-search-forward))
 
 ;; reddit
-(use-package md4rd
-  :ensure t
-  :config (add-hook 'md4rd-mode-hook 'md4rd-indent-all-the-lines))
+;; (use-package md4rd
+;;   :ensure t
+;;   :config (add-hook 'md4rd-mode-hook 'md4rd-indent-all-the-lines))
 
 (use-package format-all
   :ensure t
@@ -126,6 +126,10 @@
 (use-package realgud
   :ensure t)
 
+(use-package rainbow-mode
+  :ensure t
+  :hook (prog-mode . rainbow-mode)
+  )
 ;; (use-package slime
 ;;   :ensure t
 ;;   :config (setq inferior-lisp-program "sbcl"))
