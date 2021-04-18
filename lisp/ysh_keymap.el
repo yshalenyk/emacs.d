@@ -79,19 +79,7 @@
    ))
 
 
-(xah-fly--define-keys
- xah-fly-shared-map
- '(
-   ("<f2>" . xah-fly-command-mode-activate-no-hook)
-   ("<f9>" . xah-fly-leader-key-map)
-   ("<f10>" . xah-fly-command-mode-activate-no-hook)
-   ("<f11>" . xah-fly-command-mode-activate-no-hook)
-   ("<f12>" . xah-next-user-buffer)
-   )
- :direct)
 
-;; (define-key xah-fly-w-keymap (kbd "n") 'make-frame)
-;; (define-key xah-fly-w-keymap (kbd "j") 'other-frame)
 ;; (defun ysh-xfk-addon-command ()
 ;;   "Modify keys for xah fly key command mode keys
 ;; To be added to `xah-fly-command-mode-activate-hook'"
