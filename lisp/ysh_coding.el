@@ -6,6 +6,7 @@
 ;; smart jumps
 (use-package avy
   :ensure t
+  :config (setq avy-keys '(?a ?o ?e ?u ?d ?h ?t ?n ?s))
   )
 
 ;; ;; text objects
@@ -17,9 +18,6 @@
 (use-package smartparens-config
   :ensure smartparens
   :config (progn (show-smartparens-global-mode t))
-  :hook
-  (prog-mode . turn-on-smartparens-strict-mode)
-  (markdown-mode . turn-on-smartparens-strict-mode)
   )
 ;; (use-package smartparens
 ;;   :ensure t
@@ -28,7 +26,7 @@
 
 ;; (use-package paredit
 ;;   :ensure t
-;;   :hook (lisp-mode . paredit-mode)
+;;	   :hook (lisp-mode . paredit-mode)
 ;;   )
 
 ;; more colors
@@ -52,5 +50,17 @@
   :bind ("<C-return>" . hs-toggle-hiding)
   :hook (prog-mode . hs-minor-mode)
   )
+
+(use-package tree-sitter
+  :ensure t
+  :config
+  (global-tree-sitter-mode)
+  )
+(use-package tree-sitter-langs :ensure t)
+
+(use-package csharp-mode
+  :ensure t
+  :config
+  (add-to-list 'auto-mode-alist '("\\.cs\\'" . csharp-tree-sitter-mode)))
 
 (provide 'ysh_coding)
