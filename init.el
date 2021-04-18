@@ -21,7 +21,7 @@
 ;; (setq mode-line-format nil)
 
 ;; won’t have to reach for the return key to add newlines
-(setq next-line-add-newlines t)
+;; (setq next-line-add-newlines t)
 
 ;; (setq-default package-check-signature nil)
 ;; use gpg2
