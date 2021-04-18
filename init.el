@@ -121,9 +121,9 @@
 
 ;; load config modules(
 
-;; (use-package fly_keys)
-;; (use-package ysh_keymap
-;; :after (fly_keys smartparens))
+ (use-package fly_keys)
+ (use-package ysh_keymap
+ :after (fly_keys smartparens))
 ;; (use-package ysh_viper)
 
 (use-package ysh_ui)
@@ -138,7 +138,6 @@
 (use-package ysh_tools)
 (use-package ysh_semantic)
 ;; (use-package ysh_lisp)
-(use-package ysh_lisp)
 (use-package ysh_keys)
 
 ;;(use-package ysh_evil)
