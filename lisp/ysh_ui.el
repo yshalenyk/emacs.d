@@ -158,20 +158,18 @@
   (global-set-key (kbd "C-h k") #'helpful-key)
   )
 
-(use-package telephone-line
+(use-package highlight-symbol
   :ensure t
-  :config (telephone-line-mode 1))
+  :init (setq highlight-symbol-idle-delay 0.3)
+  :config (highlight-symbol-mode t)
+  )
+
+;; (use-package telephone-line
+;;   :ensure t
+;;   :config (telephone-line-mode 1))
 
 ;; alpha if you want
 ;;(set-frame-parameter (selected-frame) 'alpha '(90 . 30))
 ;;(add-to-list 'default-frame-alist '(alpha . (90 . 30)))
 (provide 'ysh_ui)
 ;;; ysh_ui.el ends here
-
-
-
-
-
-
-
-
