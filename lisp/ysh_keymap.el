@@ -132,25 +132,27 @@
  '(
    ("RET" . insert-char)
    ("SPC" . xah-insert-unicode)
-
-   ("W" . xah-insert-double-angle-bracket)
-   ("b" . xah-insert-black-lenticular-bracket)
-   ("c" . xah-insert-ascii-single-quote)
-   ("d" . xah-insert-double-curly-quote)
-   ("f" . xah-insert-emacs-quote)
-   ("g" . xah-insert-ascii-double-quote)
-   ("h" . xah-insert-brace) ; {}
-   ("i" . xah-insert-curly-single-quote)
-   ("l" . xah-insert-formfeed)
-   ("m" . xah-insert-corner-bracket)
-   ("n" . xah-insert-square-bracket) ; []
-   ("p" . xah-insert-single-angle-quote)
-   ("r" . xah-insert-tortoise-shell-bracket )
-   ("s" . xah-insert-string-assignment)
-   ("t" . xah-insert-paren)
-   ("u" . xah-insert-date)
-   ("w" . xah-insert-angle-bracket)
-   ("y" . xah-insert-double-angle-quote)
+   ("d" . embrace-delete)
+   ("n" . embrace-add)
+   ("c" . embrace-change)
+   ;; ("W" . xah-insert-double-angle-bracket)
+   ;; ("b" . xah-insert-black-lenticular-bracket)
+   ;; ("c" . xah-insert-ascii-single-quote)
+   ;; ("d" . xah-insert-double-curly-quote)
+   ;; ("f" . xah-insert-emacs-quote)
+   ;; ("g" . xah-insert-ascii-double-quote)
+   ;; ("h" . xah-insert-brace) ; {}
+   ;; ("i" . xah-insert-curly-single-quote)
+   ;; ("l" . xah-insert-formfeed)
+   ;; ("m" . xah-insert-corner-bracket)
+   ;; ("n" . xah-insert-square-bracket) ; []
+   ;; ("p" . xah-insert-single-angle-quote)
+   ;; ("r" . xah-insert-tortoise-shell-bracket )
+   ;; ("s" . xah-insert-string-assignment)
+   ;; ("t" . xah-insert-paren)
+   ;; ("u" . xah-insert-date)
+   ;; ("w" . xah-insert-angle-bracket)
+   ;; ("y" . xah-insert-double-angle-quote)
    ;;
    ))
 

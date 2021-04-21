@@ -41,7 +41,12 @@
   :hook (prog-mode . format-all-mode))
 
 (use-package expand-region
-  :ensure t)
+  :ensure t
+  :config
+  (use-package embrace
+    :ensure t
+    )
+  )
 
 (use-package dired
   :config
