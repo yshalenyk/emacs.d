@@ -29,4 +29,10 @@
 (use-package vue-mode
   :ensure t)
 
+(use-package csharp-mode
+  :ensure t
+  :config
+  (add-to-list 'auto-mode-alist '("\\.cs\\'" . csharp-tree-sitter-mode)))
+
+
 (provide 'ysh_modes)

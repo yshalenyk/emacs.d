@@ -58,9 +58,9 @@
   )
 (use-package tree-sitter-langs :ensure t)
 
-(use-package csharp-mode
-  :ensure t
-  :config
-  (add-to-list 'auto-mode-alist '("\\.cs\\'" . csharp-tree-sitter-mode)))
+
+;; TODO: bind keys for skeletor
+(use-package skeletor
+  :ensure t)
 
 (provide 'ysh_coding)
