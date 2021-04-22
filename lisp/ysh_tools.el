@@ -135,6 +135,17 @@
   :ensure t
   :hook (prog-mode . rainbow-mode)
   )
+
+(use-package wucuo
+  :ensure t
+  :hook
+  (prog-mode . wucuo-start)
+  (text-mode . wucuo-start)
+  :init
+  (setq ispell-program-name "hunspell")
+  :config
+  (flyspell-mode t)
+  )
 ;; (use-package slime
 ;;   :ensure t
 ;;   :config (setq inferior-lisp-program "sbcl"))
