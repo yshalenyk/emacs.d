@@ -13,8 +13,8 @@
 ;; (set-frame-font "Noto Mono-10" t t)   ; set default font
 ;; (setq default-frame-alist '((font . "Noto Mono-10")))
 
-(set-frame-font "Source Code Pro Medium-12" t t)   ; set default font
-(setq default-frame-alist '((font . "Source Code Pro Medium-12")))
+(set-frame-font "Source Code Pro Medium-11" t t)   ; set default font
+(setq default-frame-alist '((font . "Source Code Pro Medium-11")))
 
 ;;; Apperiance settings (minimal mode)
 (menu-bar-mode -1)
@@ -67,28 +67,53 @@
 
 
 ;;default theme
-;; (use-package modus-operandi-theme
+(use-package modus-themes
+  :ensure t
+  ;; :config
+ ;; (load-theme 'modus-operandi t)
+;;  (setq ysh-current-theme 'modus-vivendi)
+  )
+
+(use-package zenburn-theme
+  :ensure t
+  ;; :config (load-theme 'zenburn t)
+  )
+
+(use-package doom-themes
+  :ensure t
+  :config (load-theme 'doom-acario-light t))
+
+;; (use-package faff-theme
 ;;   :ensure t
-;;   :config
-;;   (load-theme 'modus-operandi t)
-;; ;;  (setq ysh-current-theme 'modus-vivendi)
+;;   :config (load-theme 'faff t)
 ;;   )
 
 ;; (use-package eclipse-theme
 ;;   :ensure t
 ;;   :config (load-theme 'eclipse t))
 
-;; (use-package brutalist-theme
-;;   :ensure t
-;;   :config (load-theme 'brutalist t))
-;; Or, if you use `use-package', do something like this:
-;; (use-package ample-theme
-;;   :init (progn (load-theme 'ample t t)
-;;                (load-theme 'ample-flat t t)
-;;                (load-theme 'ample-light t t)
-;;                (enable-theme 'ample-light))
-;;   :defer t
-;;   :ensure t)
+;; (use-package busybee-theme
+  ;; :ensure t
+  ;; :config
+ ;; (load-theme 'busybee)
+  ;; )
+;;(use-package
+
+;; (load-theme 'nofrils-acme)
+;; Set the color of the fringe
+;; (custom-set-faces
+;;  '(fringe ((t (:background "white")))))
+
+;; (custom-set-faces
+;;   '(default ((t (:background "black" :foreground "grey"))))
+;;   '(fringe ((t (:background "black")))))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; (use-package eclipse-theme	      ;;
+;;   :ensure t			      ;;
+;;   :config (load-theme 'eclipse t)) ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 ;; (defun ysh-switch-theme()
 ;;   (interactive)
 ;;   (cond
@@ -173,7 +198,7 @@
   (setq modus-operandi-theme-completions 'opinionated)
   (setq modus-operandi-theme-org-blocks 'greyscale)
   (setq modus-operandi-theme-scale-headings t)
-  (load-theme 'modus-operandi t)
+  (load-theme 'modus-vivendi t)
   ;; Without it tables becomes missaligned
   (set-face-attribute 'button nil :inherit '(fixed-pitch)))
 
@@ -239,11 +264,16 @@
   (global-set-key (kbd "C-h k") #'helpful-key)
   )
 
-(use-package highlight-symbol
+;; (use-package highlight-symbol
+;;   :ensure t
+;;   :init (setq highlight-symbol-idle-delay 0.3)
+;;   :config (highlight-symbol-mode t)
+;;   )
+
+(use-package idle-highlight-mode
   :ensure t
-  :init (setq highlight-symbol-idle-delay 0.3)
-  :config (highlight-symbol-mode t)
-  )
+  :config (setq idle-highlight-idle-time 0.2)
+  :hook ((prog-mode text-mode) . idle-highlight-mode))
 
 ;; (use-package telephone-line
 ;;   :ensure t

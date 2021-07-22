@@ -183,4 +183,8 @@
              ("a" . sx-ask)
              ("s" . sx-search)))
 
+(use-package jump-char
+  :ensure t
+  :bind ("M-m" . jump-char-forward))
+
 (provide 'ysh_tools)

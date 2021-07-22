@@ -69,4 +69,10 @@
 (global-set-key (kbd "C-o") 'beginning-of-line)
 (global-set-key (kbd "C-z") 'comment-region)
 
+(global-set-key (kbd "M-3") 'delete-other-windows)
+(global-set-key (kbd "M-2") 'delete-window)
+(global-set-key (kbd "M-4") 'split-window-below)
+(global-set-key (kbd "M-0") 'delete-window)
+
+
 (provide 'ysh_keys)
