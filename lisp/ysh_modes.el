@@ -1,6 +1,6 @@
 
 ;;; additional languages
-(use-package rustic :ensure t)
+;; (use-package rustic :ensure t)
 
 (use-package rust-mode
   :ensure t)
@@ -34,5 +34,5 @@
   :config
   (add-to-list 'auto-mode-alist '("\\.cs\\'" . csharp-tree-sitter-mode)))
 
-
 (provide 'ysh_modes)
+

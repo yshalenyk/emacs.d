@@ -25,17 +25,24 @@
 (define-key key-translation-map (kbd "C-w") (kbd "C-,"))
 (define-key key-translation-map (kbd "M-,") (kbd "M-w"))
 (define-key key-translation-map (kbd "M-w") (kbd "M-,"))
+(define-key key-translation-map (kbd "M-a") (kbd "M-x"))
+(define-key key-translation-map (kbd "M-x") (kbd "M-a"))
+
 
 ;; More handy C-x
 (define-key key-translation-map (kbd "C-u") (kbd "C-x"))
 (define-key key-translation-map (kbd "C-x") (kbd "C-u"))
+
+;; for word navigation
+(define-key key-translation-map (kbd "C-g") (kbd "C-i"))
+(define-key key-translation-map (kbd "C-i") (kbd "C-g"))
 
 (define-key key-translation-map (kbd "M-n") (kbd "M-t"))
 (define-key key-translation-map (kbd "M-t") (kbd "M-n"))
 
 ;;(define-key key-translation-map (kbd "M-p") (kbd "M-n"))
 ;;(define-key key-translation-map (kbd "M-n") (kbd "M-p"))
-(global-set-key (kbd "M-p") 'scroll-down-command)
+(global-set-key (kbd "M-c") 'scroll-down-command)
 (global-set-key (kbd "M-n") 'scroll-up-command)
 
 (define-key key-translation-map (kbd "M-h") (kbd "M-b"))
@@ -48,18 +55,18 @@
 ;; Global keys
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "C-s") 'swiper)
+(global-set-key (kbd "C-,") 'other-window)
+
+(global-set-key (kbd "M-.") 'backward-kill-word)
+(global-set-key (kbd "M-p") 'kill-word)
+
+(global-set-key (kbd "C-r") 'forward-word)
+(global-set-key (kbd "C-i") 'backward-word)
+
+(global-set-key (kbd "C-.") 'backward-delete-char)
+(global-set-key (kbd "C-j") 'delete-char)
+
+(global-set-key (kbd "C-o") 'beginning-of-line)
+(global-set-key (kbd "C-z") 'comment-region)
 
 (provide 'ysh_keys)
-
-
-
-
-
-
-
-
-
-
-
-
-

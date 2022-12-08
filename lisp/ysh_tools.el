@@ -16,11 +16,33 @@
 
 ;;; git frontend
 (use-package magit
-;  :hook
- ; (magit-mode . xah-fly-insert-mode-activate)
+  :ensure t
   :config
   (add-hook 'after-save-hook 'magit-after-save-refresh-status t)
-  :ensure t)
+  (define-key magit-mode-map (kbd "<tab>") 'magit-section-toggle)
+  (use-package magit-todos
+    :ensure t
+    :demand t
+    )
+  )
+
+(use-package w3m
+  :commands w3m-goto-url w3m-search
+  :init
+  (setq browse-url-browser-function 'w3m-browse-url)
+  (setq w3m-use-cookies t)
+
+  ;; clean up the w3m buffers:
+  (add-hook 'w3m-display-functions 'w3m-hide-stuff)
+  (add-hook 'w3m-mode 'ace-link-mode)
+
+  (global-set-key (kbd "C-c w w") 'w3m-goto-url)
+  (global-set-key (kbd "C-c w l") 'browse-url-at-point)
+  (global-set-key (kbd "C-c w g") 'w3m-search)
+
+  :config
+  (define-key w3m-mode-map (kbd "&") 'w3m-view-url-with-external-browser))
+
 
 ;;; pass frontend
 ;; (use-package pass
@@ -36,9 +58,11 @@
 ;;   :ensure t
 ;;   :config (add-hook 'md4rd-mode-hook 'md4rd-indent-all-the-lines))
 
-(use-package format-all
-  :ensure t
-  :hook (prog-mode . format-all-mode))
+;; XXX: can't desrcibe how i hate external dependencies
+;; (use-package format-all
+;;   :ensure t
+;;   :hook (prog-mode . format-all-mode))
+
 
 (use-package expand-region
   :ensure t
@@ -91,9 +115,6 @@
   (setq uniquify-after-kill-buffer-p t)
   (setq uniquify-ignore-buffers-re "^\\*")
   )
-;; ;; better eshell
-;; (use-package aweshell
-;;   :ensure t)
 
 (use-package harvest
   :demand t
@@ -121,7 +142,6 @@
   :config
   (dashboard-setup-startup-hook))
 
-
 ;; terminal
 (use-package vterm
   :ensure t)
@@ -146,9 +166,21 @@
   :config
   (flyspell-mode t)
   )
-;; (use-package slime
-;;   :ensure t
-;;   :config (setq inferior-lisp-program "sbcl"))
 
+(use-package org-drill
+  :ensure t)
+
+(use-package sx
+  :ensure t
+  :config
+  (bind-keys :prefix "C-c s"
+             :prefix-map my-sx-map
+             :prefix-docstring "Stack exchange keymap."
+             ("q" . sx-tab-all-questions)
+             ("i" . sx-inbox)
+             ("o" . sx-open-link)
+             ("u" . sx-tab-unanswered-my-tags)
+             ("a" . sx-ask)
+             ("s" . sx-search)))
 
 (provide 'ysh_tools)

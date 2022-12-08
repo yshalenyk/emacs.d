@@ -1,7 +1,7 @@
 ;; expand selectction
-(use-package expand-region
-  :ensure t
-  )
+;;(use-package expand-region
+;;  :ensure t
+;;  )
 
 ;; smart jumps
 (use-package avy

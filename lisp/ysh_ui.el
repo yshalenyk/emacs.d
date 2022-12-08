@@ -2,6 +2,8 @@
 ;;; Commentary:
 ;;; my Emacs ui configuration
 ;;; Code:
+
+;; TODO: choose theme!!
 (setq-default truncate-lines t)         ; straight lines
 ;; (custom-set-variables
 ;;  '(initial-frame-alist (quote ((fullscreen . maximized)))))
@@ -11,8 +13,8 @@
 ;; (set-frame-font "Noto Mono-10" t t)   ; set default font
 ;; (setq default-frame-alist '((font . "Noto Mono-10")))
 
-(set-frame-font "Source Code Pro Medium-12.5" t t)   ; set default font
-(setq default-frame-alist '((font . "Source Code Pro Medium-12.5")))
+(set-frame-font "Source Code Pro Medium-12" t t)   ; set default font
+(setq default-frame-alist '((font . "Source Code Pro Medium-12")))
 
 ;;; Apperiance settings (minimal mode)
 (menu-bar-mode -1)
@@ -25,6 +27,20 @@
 (delete-selection-mode 1)
 (setq-default indent-tabs-mode -1)
 (setq-default tramp-default-method "ssh")
+
+
+;; (if (display-graphic-p)
+;;     (setq initial-frame-alist
+;;           '(
+;;             (tool-bar-lines . 0)
+;;             (width . 106)
+;;             (height . 60)
+;;             (background-color . "honeydew")
+;;             (left . 50)
+;;             (top . 50)))
+  ;; (setq initial-frame-alist '( (tool-bar-lines . 0))))
+
+(setq default-frame-alist initial-frame-alist)
 
 ;; lighter modeline
 (use-package diminish
@@ -42,8 +58,6 @@
      (emacs-lisp-mode "Elisp" :major))))
 
 ;;_setup_themes
-;; (use-package gruvbox-theme
-;; ;;   :ensure t :config (load-theme 'gruvbox t))
 ;; (use-package modus-vivendi-theme
 ;;   :ensure t
 ;;   :config
@@ -60,9 +74,9 @@
 ;; ;;  (setq ysh-current-theme 'modus-vivendi)
 ;;   )
 
-(use-package eclipse-theme
-  :ensure t
-  :config (load-theme 'eclipse t))
+;; (use-package eclipse-theme
+;;   :ensure t
+;;   :config (load-theme 'eclipse t))
 
 ;; (use-package brutalist-theme
 ;;   :ensure t
@@ -112,7 +126,74 @@
 ;; (use-package eziam-theme
 ;;     :defer t
 ;;     :init (load-theme 'eziam-light))
+;; (use-package gandalf-theme
+;;   :ensure t
+;;   :config (load-theme 'gandalf))
 
+;; (use-package zenburn-theme
+;;   :ensure t
+;;   :config (load-theme 'zenburn t)
+;;   )
+
+
+;; (use-package gruvbox-theme
+;;   :ensure t
+;;   ;; :config (load-theme 'gruvbox-light-soft t)
+;;   )
+
+;; (use-package base16-theme
+;;   :ensure t
+;;   :config
+;;   (load-theme 'base16-zenburn t))
+
+(use-package hybrid-reverse-theme
+  :ensure t
+  ;; :config (load-theme 'hybrid-reverse)
+  )
+
+;; (use-package faff-theme
+  ;; :ensure t
+  ;; :config
+  ;; (load-theme 'faff t)
+  ;; )
+
+;; (use-package sketch-themes
+;;   :ensure t
+;;   :config
+;;   ;; Load black version
+;;   ;; (load-theme 'sketch-black t)
+;;   ;; Load white version
+;;   (load-theme 'sketch-white t)
+;;   )
+
+(use-package modus-themes
+  :ensure t
+  :config
+  (setq modus-operandi-theme-prompts 'intense)
+  (setq modus-operandi-theme-completions 'opinionated)
+  (setq modus-operandi-theme-org-blocks 'greyscale)
+  (setq modus-operandi-theme-scale-headings t)
+  (load-theme 'modus-operandi t)
+  ;; Without it tables becomes missaligned
+  (set-face-attribute 'button nil :inherit '(fixed-pitch)))
+
+
+;; (use-package yoshi-theme
+  ;; :ensure t
+;; :config (load-theme 'yoshi t))
+;; (use-package darktooth-theme
+  ;; :ensure t
+  ;; :config (load-theme 'darktooth t))
+
+;; (use-package doom-themes
+;;   :ensure t
+;;   :config (load-theme 'doom-nord-light))
+
+
+;; (use-package powerline
+;;   :ensure t
+;;   :config (powerline-default-theme)
+;;   )
 ;; (use-package eziam-light-theme
 ;;     :ensure eziam-theme)
 
@@ -122,10 +203,10 @@
   :diminish which-key-mode
   :config (progn
 	    (which-key-mode)
+	    ;; (which-key-setup-side-window-bottom))
+	    ;; (which-key-setup-minibuffer)))
 	    (which-key-setup-side-window-right)))
 
-;; (which-key-setup-side-window-bottom))
-;; (which-key-setup-minibuffer)))
 
 ;;; smart splits sizing
 (use-package zoom
