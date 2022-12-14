@@ -17,6 +17,7 @@
 (setq sentence-end-double-space nil)	; sentence SHOULD end with only a point.
 ;; (setq-default default-fill-column 80)	; toggle wrapping text at the 80th character
 (setq initial-scratch-message "Welcome in Emacs") ; print a default message in the empty scratch buffer opened at startup
+(setq native-comp-async-report-warnings-errors nil)
 (defalias 'yes-or-no-p 'y-or-n-p)       ; must have
 ;; (setq mode-line-format nil)
 
@@ -62,6 +63,8 @@
 
 
 (add-to-list 'load-path "~/.config/emacs/lisp/")
+(add-to-list 'load-path "~/.config/emacs/vendor/taoline/")
+(add-to-list 'load-path "~/.config/emacs/vendor/themes/")
 ;;(add-to-list 'load-path "~/work/xah-fly-keys")
 ;; (add-to-list 'load-path "~/.config/emacs/lisp/xah-fly-keys/")
 ;;; the following lines tell emacs where on the internet to look up
@@ -95,13 +98,20 @@
 (require 'use-package) ; guess what this one does too ?
 
 
-;;; auto update packages
-(use-package auto-package-update
+(use-package quelpa
   :ensure t
   :config
-  (setq auto-package-update-delete-old-versions t
-        auto-package-update-interval 4)
-  (auto-package-update-maybe))
+  (use-package quelpa-use-package
+    :ensure t)
+  )
+
+;;; auto update packages
+;; (use-package auto-package-update
+;;   :ensure t
+;;   :config
+;;   (setq auto-package-update-delete-old-versions t
+;;         auto-package-update-interval 4)
+;;   (auto-package-update-maybe))
 
 ;;; use libs
 (use-package dash
@@ -122,11 +132,6 @@
 
 ;; load config modules(
 
-;; (use-package fly_keys)
-;; (use-package map
-;;  :after (fly_keys smartparens))
-;; (use-package ysh_viper)
-
 (use-package ysh_ui)
 ;; (use-package ysh_theme)
 (use-package ysh_modes)
@@ -134,6 +139,7 @@
 ;(use-package ysh_search)
 (use-package ysh_consult)
 ;;(use-package ysh_helm)
+(use-package ysh_search)		;
 (use-package ysh_coding)
 ;(use-package ysh_semantic)
 (use-package ysh_autocomplete)
