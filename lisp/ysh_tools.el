@@ -7,11 +7,18 @@
 (use-package projectile
   :delight '(:eval (concat " " (projectile-project-name)))
   :ensure t
-  :custom (projectile-completion-system 'ido)
+  :custom (projectile-completion-system 'ivy)
   :config
   (use-package ripgrep
     :ensure t)
+  (use-package rg
+    :ensure t)
   (projectile-mode t)
+  ;; (use-package helm-projectile
+    ;; :ensure t
+  ;; :config (helm-projectile-on))
+  (use-package counsel-projectile
+    :ensure t)
   )
 
 ;;; git frontend
@@ -43,6 +50,20 @@
   :config
   (define-key w3m-mode-map (kbd "&") 'w3m-view-url-with-external-browser))
 
+
+(use-package forge
+  :ensure t
+  :after magit)
+
+;; (use-package pdf-tools
+;;   :ensure t
+;;   :pin manual ;; don't reinstall when package updates
+;;   :mode  ("\\.pdf\\'" . pdf-view-mode)
+;;   :config
+;;   (setq-default pdf-view-display-size 'fit-page)
+;;   (setq pdf-annot-activate-created-annotations t)
+;;   (pdf-tools-install :no-query)
+;;   (require 'pdf-occur))
 
 ;;; pass frontend
 ;; (use-package pass
@@ -147,7 +168,7 @@
   :ensure t)
 
 ;; debugger support
-;; TODO: chekc me out!
+;; TODO: check me out!
 (use-package realgud
   :ensure t)
 
@@ -195,5 +216,6 @@
 (use-package jump-char
   :ensure t
   :bind ("M-m" . jump-char-forward))
+
 
 (provide 'ysh_tools)
