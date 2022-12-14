@@ -13,13 +13,19 @@
 ;; (set-frame-font "Noto Mono-10" t t)   ; set default font
 ;; (setq default-frame-alist '((font . "Noto Mono-10")))
 
+
 (set-frame-font "Source Code Pro Medium-11" t t)   ; set default font
 (setq default-frame-alist '((font . "Source Code Pro Medium-11")))
+
 
 ;;; Apperiance settings (minimal mode)
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
+
+;; modeline on top
+;; (setq-default header-line-format mode-line-format)
+;; (setq-default mode-line-format nil) ; Remove mode-line
 
 ;;; additional editing configuration
 ;; (electric-pair-mode 1)
@@ -27,7 +33,7 @@
 (delete-selection-mode 1)
 (setq-default indent-tabs-mode -1)
 (setq-default tramp-default-method "ssh")
-
+(fringe-mode 0)
 
 ;; (if (display-graphic-p)
 ;;     (setq initial-frame-alist
@@ -41,6 +47,7 @@
   ;; (setq initial-frame-alist '( (tool-bar-lines . 0))))
 
 (setq default-frame-alist initial-frame-alist)
+
 
 ;; lighter modeline
 (use-package diminish
@@ -69,23 +76,32 @@
 ;;default theme
 (use-package modus-themes
   :ensure t
-  ;; :config
- ;; (load-theme 'modus-operandi t)
-;;  (setq ysh-current-theme 'modus-vivendi)
+  :config
+ (load-theme 'modus-operandi t)
+ (setq ysh-current-theme 'modus-vivendi)
   )
 
-(use-package zenburn-theme
-  :ensure t
+;; (use-package zenburn-theme
+  ;; :ensure t
   ;; :config (load-theme 'zenburn t)
-  )
+  ;; )
 
-(use-package doom-themes
-  :ensure t
-  :config (load-theme 'doom-acario-light t))
+;; (use-package doom-themes
+  ;; :ensure t
+  ;; :config (load-theme 'doom-acario-light t))
 
 ;; (use-package faff-theme
+  ;; :ensure t
+  ;; :config (load-theme 'faff t)
+  ;; )
+(use-package gruvbox-theme
+  :ensure t
+  ;; :config (load-theme 'gruvbox t)
+  )
+
+;; (use-package alect-themes
 ;;   :ensure t
-;;   :config (load-theme 'faff t)
+;;   :config (load-theme 'alect-light t)
 ;;   )
 
 ;; (use-package eclipse-theme
@@ -137,8 +153,9 @@
   :config (olivetti-mode t))
 
 (olivetti-mode 1)        ;; Centers text in the buffer
-(flyspell-mode 1)
+;; (flyspell-mode 1)
 
+<<<<<<< HEAD
 ;; (use-package kaolin-themes
 ;;   :ensure t
 ;;   :config (load-theme 'kaolin-light t))
@@ -221,6 +238,28 @@
 ;;   )
 ;; (use-package eziam-light-theme
 ;;     :ensure eziam-theme)
+=======
+ ;; Command to toggle the display of the mode-line as a header
+(defvar-local header-line-format nil)
+(defun mode-line-in-header ()
+  (interactive)
+  (if (not header-line-format)
+      (setq header-line-format mode-line-format
+            mode-line-format nil)
+    (setq mode-line-format header-line-format
+          header-line-format nil))
+  (set-window-buffer nil (current-buffer)))
+(global-set-key (kbd "<f12>") 'mode-line-in-header)
+;; (use-package    taoline
+;;   :ensure       t
+;;   :custom
+;;   (taoline-show-git-branch      t)
+;;   (taoline-show-dir             t)
+;;   (taoline-show-time            nil)
+;;   (taoline-show-previous-buffer nil)
+;;   :config
+;;   (taoline-mode t))
+>>>>>>> 05d427a (change fort size)
 
 ;;; show key bindings in popup
 (use-package which-key
@@ -245,9 +284,9 @@
 
 ;; Emacs package for hiding and/or highlighting the list of minor-modes in the mode-line.
 ;; TODO: telephone-line ??
-(use-package rich-minority
-  :ensure t
-  :config (rich-minority-mode t))
+;; (use-package rich-minority
+;;   :ensure t
+;;   :config (rich-minority-mode t))
 
 ;;; quick jump between windows
 (use-package ace-window
@@ -275,10 +314,24 @@
   :config (setq idle-highlight-idle-time 0.2)
   :hook ((prog-mode text-mode) . idle-highlight-mode))
 
-;; (use-package telephone-line
-;;   :ensure t
-;;   :config (telephone-line-mode 1))
+(use-package org-modern
+  :ensure t
+  :config
+  (setq org-hide-emphasis-markers t
+      org-pretty-entities t
+      org-auto-align-tags nil
+      org-tags-column 0
+      org-ellipsis "…"
+      org-catch-invisible-edits 'show-and-error
+      org-special-ctrl-a/e t
+      org-insert-heading-respect-content t)
+  :hook (org-mode . org-modern-mode)
+  )
 
+;; (use-package telephone-line
+  ;; :ensure t
+  ;; :config (telephone-line-mode 1))
+;; 
 ;; alpha if you want
 ;;(set-frame-parameter (selected-frame) 'alpha '(90 . 30))
 ;;(add-to-list 'default-frame-alist '(alpha . (90 . 30)))
