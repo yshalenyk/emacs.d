@@ -15,11 +15,14 @@
 ;;   :hook (prog-mode . objed-mode))
 
 ;; smart wrap
-(use-package smartparens-config
-  :ensure smartparens
-  :config (progn (show-smartparens-global-mode t))
-  )
-;; (use-package smartparens
+;; (use-package smartparens-config
+  ;; :ensure smartparens
+  ;; :config
+;; 
+  ;; (show-smartparens-global-mode t)
+  ;; )
+
+;;; (use-package smartparens
 ;;   :ensure t
 ;;   :config
 ;;   (require 'smartparens-config))
