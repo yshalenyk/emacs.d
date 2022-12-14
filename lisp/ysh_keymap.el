@@ -6,77 +6,77 @@
 ;; TODO: debug mode
 ;; TODO: ediff mode
 
-(xah-fly--define-keys
- xah-fly-command-map
- '(
-   ;; empty
-   ("\\" . nil)
+;; (xah-fly--define-keys
+;;  xah-fly-command-map
+;;  '(
+;;    ;; empty
+;;    ("\\" . nil)
 
-   ;; leader
-   ("SPC" . xah-fly-leader-key-map)
-   ("DEL" . xah-fly-leader-key-map)
+;;    ;; leader
+;;    ("SPC" . xah-fly-leader-key-map)
+;;    ("DEL" . xah-fly-leader-key-map)
 
-   ;; splits and frames
-   ("3" . delete-other-windows)
-   ("4" . split-window-below)
-   ("`" . other-frame)
-   ;; ("#" . xah-backward-quote)
-   ;; ("$" . xah-forward-punct)
+;;    ;; splits and frames
+;;    ("3" . delete-other-windows)
+;;    ("4" . split-window-below)
+;;    ("`" . other-frame)
+;;    ;; ("#" . xah-backward-quote)
+;;    ;; ("$" . xah-forward-punct)
 
-   ;; selection
-   ("1" . er/contract-region)
-   ("2" . xah-select-line)
-   ("6" . xah-select-block)
-   ("7" . xah-select-line)
-   ("8" . er/expand-region)
-   ("9" . xah-select-text-in-quote)
+;;    ;; selection
+;;    ("1" . er/contract-region)
+;;    ("2" . xah-select-line)
+;;    ("6" . xah-select-block)
+;;    ("7" . xah-select-line)
+;;    ("8" . er/expand-region)
+;;    ("9" . xah-select-text-in-quote)
 
-   ;; deletion
-   ("5" . delete-char)
-   ("," . xah-shrink-whitespaces)
-   ("e" . xah-delete-backward-char-or-bracket-text)
-   ("p" . xah-kill-word)
-   ("." . xah-backward-kill-word)
+;;    ;; deletion
+;;    ("5" . delete-char)
+;;    ("," . xah-shrink-whitespaces)
+;;    ("e" . xah-delete-backward-char-or-bracket-text)
+;;    ("p" . xah-kill-word)
+;;    ("." . xah-backward-kill-word)
 
-   ;; navigation
-   ("c" . previous-line)
-   ("t" . next-line)
-   ("d" . xah-beginning-of-line-or-block)
-   ("s" . xah-end-of-line-or-block)
-   ("g" . backward-word)
-   ("r" . forward-word)
-   ("h" . backward-char)
-   ("n" . forward-char)
-   ("v" . xah-forward-right-bracket)
-   ("m" . xah-backward-left-bracket)
-   ("z" . xah-goto-matching-bracket)
-   ("[" . xah-ackward-punct )
-   ("]" . xah-forward-punct)
+;;    ;; navigation
+;;    ("c" . previous-line)
+;;    ("t" . next-line)
+;;    ("d" . xah-beginning-of-line-or-block)
+;;    ("s" . xah-end-of-line-or-block)
+;;    ("g" . backward-word)
+;;    ("r" . forward-word)
+;;    ("h" . backward-char)
+;;    ("n" . forward-char)
+;;    ("v" . xah-forward-right-bracket)
+;;    ("m" . xah-backward-left-bracket)
+;;    ("z" . xah-goto-matching-bracket)
+;;    ("[" . xah-ackward-punct )
+;;    ("]" . xah-forward-punct)
 
-   ;; jumping
-   ("w" . ace-window)
-   ("i" . avy-goto-char)
-   ("0" . xah-pop-local-mark-ring)
-   ;; ("=" . xah-forward-equal-sign)
+;;    ;; jumping
+;;    ("w" . ace-window)
+;;    ("i" . avy-goto-char)
+;;    ("0" . xah-pop-local-mark-ring)
+;;    ;; ("=" . xah-forward-equal-sign)
 
-   ;; commands
-   ("'" . keyboard-quit)
-   ("a" . xah-fly-M-x)
-   ("b" . isearch-forward)
-   ("f" . undo)
-   (";" . xah-comment-dwim)
-   ("/" . hippie-expand)
-   ("j" . xah-copy-line-or-region)
-   ("k" . xah-paste-or-paste-previous)
-   ;; ("l" . xah-fly-insert-mode-activate-space-before)
-   ("l" . xah-insert-space-before)
-   ("o" . open-line)
-   ("q" . xah-cut-line-or-region)
-   ("u" . xah-fly-insert-mode-activate)
-   ("x" . xah-toggle-letter-case)
-   ("y" . set-mark-command)
-   ("-" . xah-cycle-hyphen-underscore-space)
-   ))
+;;    ;; commands
+;;    ("'" . keyboard-quit)
+;;    ("a" . xah-fly-M-x)
+;;    ("b" . isearch-forward)
+;;    ("f" . undo)
+;;    (";" . xah-comment-dwim)
+;;    ("/" . hippie-expand)
+;;    ("j" . xah-copy-line-or-region)
+;;    ("k" . xah-paste-or-paste-previous)
+;;    ;; ("l" . xah-fly-insert-mode-activate-space-before)
+;;    ("l" . xah-insert-space-before)
+;;    ("o" . open-line)
+;;    ("q" . xah-cut-line-or-region)
+;;    ("u" . xah-fly-insert-mode-activate)
+;;    ("x" . xah-toggle-letter-case)
+;;    ("y" . set-mark-command)
+;;    ("-" . xah-cycle-hyphen-underscore-space)
+;;    ))
 
 
 
@@ -127,14 +127,14 @@
 ;;   (define-key diff-mode-shared-map (kbd "SPC") 'xah-fly-leader-key-map)
 ;;   )
 
-(xah-fly--define-keys
- (define-prefix-command 'xah-fly-e-keymap)
- '(
-   ("RET" . insert-char)
-   ("SPC" . xah-insert-unicode)
-   ("d" . embrace-delete)
-   ("n" . embrace-add)
-   ("c" . embrace-change)
+;; (xah-fly--define-keys
+ ;; (define-prefix-command 'xah-fly-e-keymap)
+ ;; '(
+   ;; ("RET" . insert-char)
+   ;; ("SPC" . xah-insert-unicode)
+   ;; ("d" . embrace-delete)
+   ;; ("n" . embrace-add)
+   ;; ("c" . embrace-change)
    ;; ("W" . xah-insert-double-angle-bracket)
    ;; ("b" . xah-insert-black-lenticular-bracket)
    ;; ("c" . xah-insert-ascii-single-quote)
@@ -156,63 +156,63 @@
    ;;
    ))
 
-(xah-fly--define-keys
- (define-prefix-command 'xah-fly-leader-key-map)
- '(
-   ;; ("SPC" . xah-fly-insert-mode-activate)
-   ("DEL" . xah-fly-insert-mode-activate)
-   ("RET" . execute-extended-command)
-   ("TAB" . xah-fly--tab-key-map)
-   ("." . xah-fly-dot-keymap)
-   ("'" . xah-fill-or-unfill)
-   ("," . xah-fly-comma-keymap)
-   ("-" . xah-show-formfeed-as-line)
-   ;; /
-   ;; ;
-   ;; =
-   ;; [
-   ("\\" . toggle-input-method)
-   ;; `
+;; (xah-fly--define-keys
+;;  (define-prefix-command 'xah-fly-leader-key-map)
+;;  '(
+;;    ;; ("SPC" . xah-fly-insert-mode-activate)
+;;    ("DEL" . xah-fly-insert-mode-activate)
+;;    ("RET" . execute-extended-command)
+;;    ("TAB" . xah-fly--tab-key-map)
+;;    ("." . xah-fly-dot-keymap)
+;;    ("'" . xah-fill-or-unfill)
+;;    ("," . xah-fly-comma-keymap)
+;;    ("-" . xah-show-formfeed-as-line)
+;;    ;; /
+;;    ;; ;
+;;    ;; =
+;;    ;; [
+;;    ("\\" . toggle-input-method)
+;;    ;; `
 
-   ;; 1
-   ;; 2
-   ("3" . delete-window)
-   ("4" . split-window-right)
-   ("5" . balance-windows)
-   ("6" . xah-upcase-sentence)
-   ;; 7
-   ;; 8
-   ("9" . ispell-word)
-   ;; 0
+;;    ;; 1
+;;    ;; 2
+;;    ("3" . delete-window)
+;;    ("4" . split-window-right)
+;;    ("5" . balance-windows)
+;;    ("6" . xah-upcase-sentence)
+;;    ;; 7
+;;    ;; 8
+;;    ("9" . ispell-word)
+;;    ;; 0
 
-   ("a" . mark-whole-buffer)
-   ("b" . end-of-buffer)
-   ("c" . xah-fly-c-keymap)
-   ("d" . beginning-of-buffer)
-   ("e" . xah-fly-e-keymap)
-   ("f" . xah-search-current-word)
-   ("g" . xah-close-current-buffer)
-   ("h" . xah-fly-h-keymap)
-   ("i" . kill-line)
-   ("j" . xah-copy-all-or-region)
-   ("k" . xah-paste-or-paste-previous)
-   ("l" . recenter-top-bottom)
-   ("m" . dired-jump)
-   ("n" . xah-fly-n-keymap)
-   ("o" . exchange-point-and-mark)
-   ("p" . query-replace)
-   ("q" . xah-cut-all-or-region)
-   ("r" . xah-fly-r-keymap)
-   ("s" . save-buffer)
-   ("t" . xah-fly-t-keymap)
-   ("u" . switch-to-buffer)
-   ;; v
-   ("w" . xah-fly-w-keymap)
-   ("x" . xah-toggle-previous-letter-case)
-   ("y" . xah-show-kill-ring)
-   ;; z
-   ;;
-   ))
+;;    ("a" . mark-whole-buffer)
+;;    ("b" . end-of-buffer)
+;;    ("c" . xah-fly-c-keymap)
+;;    ("d" . beginning-of-buffer)
+;;    ("e" . xah-fly-e-keymap)
+;;    ("f" . xah-search-current-word)
+;;    ("g" . xah-close-current-buffer)
+;;    ("h" . xah-fly-h-keymap)
+;;    ("i" . kill-line)
+;;    ("j" . xah-copy-all-or-region)
+;;    ("k" . xah-paste-or-paste-previous)
+;;    ("l" . recenter-top-bottom)
+;;    ("m" . dired-jump)
+;;    ("n" . xah-fly-n-keymap)
+;;    ("o" . exchange-point-and-mark)
+;;    ("p" . query-replace)
+;;    ("q" . xah-cut-all-or-region)
+;;    ("r" . xah-fly-r-keymap)
+;;    ("s" . save-buffer)
+;;    ("t" . xah-fly-t-keymap)
+;;    ("u" . switch-to-buffer)
+;;    ;; v
+;;    ("w" . xah-fly-w-keymap)
+;;    ("x" . xah-toggle-previous-letter-case)
+;;    ("y" . xah-show-kill-ring)
+;;    ;; z
+;;    ;;
+;;    ))
 
 
 ;; commands related to projects
@@ -220,27 +220,14 @@
  (define-prefix-command 'xah-fly-dot-keymap)
  '(
    ("u" . projectile-find-file)
-   ("l" . projectile-switch-project)
+   ("c" . projectile-switch-project)
    ("." . projectile-run-eshell)
    ("i" . projectile-vc)
-   ("o" . projectile-ripgrep)
+   ("p" . projectile-ripgrep)
    ("y" . projectile-regenerate-tags)
    ("j" . vc-next-action)
    ("+" . vc-update)
-   ("=" . vc-diff)
-   ("D" . vc-root-diff)
-   ("l" . vc-print-log)
-   ("L" . vc-print-root-log)
-   ("c" . vc-rollback)
-   ("d" . vc-dir)
-   ("a" . vc-annotate)
-   ("h" . vc-insert-headers)
-   ("m" . vc-merge)
-   ("r" . vc-retrieve-tag)
-   ("s" . vc-create-tag)
-   ("u" . vc-revert)
-   ("v" . vc-next-action)
-   ("~" . vc-revision-other-window)
+   ("o" . counsel-rg)
    )
  )
 
