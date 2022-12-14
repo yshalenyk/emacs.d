@@ -1,6 +1,9 @@
 
 ;;; additional languages
-;; (use-package rustic :ensure t)
+(use-package rustic
+  :quelpa (rustic :fetcher git :url "https://github.com/brotzeit/rustic")
+  :after (lsp-mode)
+  )
 
 (use-package rust-mode
   :ensure t)
