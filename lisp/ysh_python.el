@@ -3,11 +3,13 @@
   :ensure t
   :bind (:map python-mode-map ("C-c t" . python-pytest-popup)))
 
-;; (use-package elpy
-;;   :ensure t
-;;   :defer t
-;;   :init
-;;   (advice-add 'python-mode :before 'elpy-enable))
+
+(use-package elpy
+  :ensure t
+  :defer t
+  :hook (elpy-mode . (lambda () (highlight-indentation-mode -1)))
+  :init
+  (advice-add 'python-mode :before 'elpy-enable))
 
 (use-package python-pytest :ensure t)
 ;; (use-package anaconda-mode
