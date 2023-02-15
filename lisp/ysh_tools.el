@@ -91,6 +91,8 @@
   (use-package embrace
     :ensure t
     )
+  :bind ("s-2" . er/expand-region)
+  :bind ("s-9" . er/expand-region)
   )
 
 (use-package dired
@@ -143,9 +145,9 @@
   :config
   (global-set-key (kbd "C-c h") 'harvest))
 
-(use-package atomic-chrome
-  :ensure t
-  :config (atomic-chrome-start-server))
+;(use-package atomic-chrome
+;  :ensure t
+;  :config (atomic-chrome-start-server))
 
 (use-package super-save
   :ensure t
@@ -194,11 +196,26 @@
   :config
   (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
   (setq dumb-jump-prefer-searcher 'rg)
+  :bind
+  ("C-c C-p" . xref-go-forward)
+  ("C-c C-n" . xref-go-bacward)
   )
 
 
 (use-package org-drill
   :ensure t)
+
+(use-package org-roam
+  :ensure t
+  :custom
+  (org-roam-directory (file-truename "~/Documents/org-roam"))
+  :bind
+  ("C-c n i" . org-roam-node-insert)
+  ("C-c n n" . org-roam-node-find)
+  ("C-c n l" . org-roam-buffer-toggle)
+  :config
+  (org-roam-setup)
+  )
 
 (use-package sx
   :ensure t
@@ -215,7 +232,48 @@
 
 (use-package jump-char
   :ensure t
-  :bind ("M-m" . jump-char-forward))
+  :bind ("C-o" . jump-char-forward))
 
+
+(use-package dired
+  :custom
+  ;; See http://stackoverflow.com/questions/4115465/emacs-dired-too-much-information
+  ;; NOTE: Just some information worth keeping in mind. More readable dired file
+  ;; size output - consider adding F (make file type obvious), or p (p adds a
+  ;; trailing slash to dirs, but makes moving dirs fail), and G (colorize) too.
+  (dired-listing-switches "-alh --group-directories-first")
+  :config
+  ;; [[https://stackoverflow.com/questions/4076360/error-in-dired-sorting-on-os-x][macos - error in dired sorting on OS X - Stack Overflow]]
+  ;; To fix the
+  ;; (error "Listing directory failed but 'access-file' worked")
+  ;; error. Emacs needs to use gnu's ls, which I get through nixpkgs' coreutils.
+  ;; In my config, currently, Emacs is not picking up the path to my nix install
+  ;; ls (todo: fix).
+  ;;
+  ;; Note that, unlike the info at the link provided above,
+  ;; --group-directories-first is not needed to fix this error. I just like to
+  ;; see the directories first in a dired buffer.
+  (setq insert-directory-program (expand-file-name "/opt/homebrew/opt/coreutils/libexec/gnubin/ls"
+                                                   (getenv "HOME"))))
+
+(use-package dash-at-point
+  :ensure t
+  :bind
+  ("C-c h" . dash-at-point)
+  ("C-c d" . dash-at-point-with-docset)
+  )
+(use-package org
+  :config
+  (setq
+   org-startup-with-inline-images t
+   )
+  )
+
+(use-package visual-regexp
+  :ensure t
+  :bind
+  ("C-c q" . vr/query-replace)
+  ("C-c r r" . vr/replace)
+  )
 
 (provide 'ysh_tools)
