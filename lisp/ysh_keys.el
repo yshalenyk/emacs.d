@@ -42,6 +42,7 @@
 
 ;;(define-key key-translation-map (kbd "M-p") (kbd "M-n"))
 ;;(define-key key-translation-map (kbd "M-n") (kbd "M-p"))
+
 (global-set-key (kbd "M-c") 'scroll-down-command)
 (global-set-key (kbd "M-n") 'scroll-up-command)
 
@@ -66,7 +67,7 @@
 (global-set-key (kbd "C-.") 'backward-delete-char)
 (global-set-key (kbd "C-j") 'delete-char)
 
-(global-set-key (kbd "C-o") 'beginning-of-line)
+;;(global-set-key (kbd "C-o") 'beginning-of-line)
 (global-set-key (kbd "C-z") 'comment-region)
 
 (global-set-key (kbd "M-3") 'delete-other-windows)
@@ -74,5 +75,18 @@
 (global-set-key (kbd "M-4") 'split-window-below)
 (global-set-key (kbd "M-0") 'delete-window)
 
+;;(global-set-key (kbd "TAB") 'tab-to-tab-stop)
+(global-set-key [tab] 'tab-to-tab-stop)
 
+(define-key ctl-x-r-map (kbd "e") 'recentf)
+
+(define-prefix-command 'ctl-c-r-map)
+(global-set-key (kbd "C-c r") 'ctl-c-r-map)
+
+(define-prefix-command 'ctl-c-c-map)
+(global-set-key (kbd "C-c c") 'ctl-c-c-map)
+(define-key ctl-c-c-map (kbd "r") 'query-replace)
+
+(define-prefix-command 'ctl-x-c-map)
+(global-set-key (kbd "C-x c") 'ctl-x-c-map)
 (provide 'ysh_keys)
