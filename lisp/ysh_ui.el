@@ -8,14 +8,14 @@
 ;; (custom-set-variables
 ;;  '(initial-frame-alist (quote ((fullscreen . maximized)))))
 (global-hl-line-mode 1)                 ; highlight current line
-;; (setq default-frame-alist '((font . "Source Code Pro-12")))
-;; (set-frame-font "Source Code Pro-12")   ; set default font
+(setq default-frame-alist '((font . "Source Code Pro-14")))
+(set-frame-font "Source Code Pro-16")   ; set default font
 ;; (set-frame-font "Noto Mono-10" t t)   ; set default font
 ;; (setq default-frame-alist '((font . "Noto Mono-10")))
 
 
-(set-frame-font "Source Code Pro Medium-11" t t)   ; set default font
-(setq default-frame-alist '((font . "Source Code Pro Medium-11")))
+;;(set-frame-font "Source Code Pro Regular-11" t t)   ; set default font
+;;(setq default-frame-alist '((font . "Source Code Pro Medium-11")))
 
 
 ;;; Apperiance settings (minimal mode)
@@ -71,16 +71,28 @@
 ;;   ;; (load-theme 'modus-vivendi t)
 ;;   ;; (setq my-current-theme 'modus-vivendi)
 ;;   )
+;; (use-package leuven-theme
+;;   :ensure t
+;;   :config
+;;   (load-theme 'leuven t)
+;;   )
 
+(use-package mindre-theme
+    :ensure t
+    :custom
+    (mindre-use-more-bold nil)
+    (mindre-use-faded-lisp-parens t)
+    :config
+    (load-theme 'mindre t))
 
 ;;default theme
 (use-package modus-themes
   :ensure t
-  :config
- (load-theme 'modus-operandi t)
- (setq ysh-current-theme 'modus-vivendi)
+;;  :config
+;;(load-theme 'modus-vivendiy t)
+;; (setq ysh-current-theme 'modus-vivendi)
   )
-
+;;(load-theme 'gruvbox t)
 ;; (use-package zenburn-theme
   ;; :ensure t
   ;; :config (load-theme 'zenburn t)
@@ -145,100 +157,26 @@
 ;;   )
 
 ;; (global-set-key (kbd "<f6>") 'my-switch-theme)
-;; (use-package nord-theme
-;;   :ensure t
-;;   :config (load-theme 'nord t))
+
 (use-package olivetti
   :ensure t
   :config (olivetti-mode t))
 
-(olivetti-mode 1)        ;; Centers text in the buffer
 ;; (flyspell-mode 1)
 
-<<<<<<< HEAD
-;; (use-package kaolin-themes
-;;   :ensure t
-;;   :config (load-theme 'kaolin-light t))
 
-;; other themes
-;; (use-package almost-mono-themes
-;;   :ensure t
-;;   :config (load-theme 'almost-mono-white t))
-
-;; (use-package eziam-theme
-;;     :defer t
-;;     :init (load-theme 'eziam-light))
-;; (use-package gandalf-theme
-;;   :ensure t
-;;   :config (load-theme 'gandalf))
-
-;; (use-package zenburn-theme
-;;   :ensure t
-;;   :config (load-theme 'zenburn t)
-;;   )
-
-
-;; (use-package gruvbox-theme
-;;   :ensure t
-;;   ;; :config (load-theme 'gruvbox-light-soft t)
-;;   )
-
-;; (use-package base16-theme
+;; (use-package modus-themes
 ;;   :ensure t
 ;;   :config
-;;   (load-theme 'base16-zenburn t))
-
-(use-package hybrid-reverse-theme
-  :ensure t
-  ;; :config (load-theme 'hybrid-reverse)
-  )
-
-;; (use-package faff-theme
-  ;; :ensure t
-  ;; :config
-  ;; (load-theme 'faff t)
-  ;; )
-
-;; (use-package sketch-themes
-;;   :ensure t
-;;   :config
-;;   ;; Load black version
-;;   ;; (load-theme 'sketch-black t)
-;;   ;; Load white version
-;;   (load-theme 'sketch-white t)
-;;   )
-
-(use-package modus-themes
-  :ensure t
-  :config
-  (setq modus-operandi-theme-prompts 'intense)
-  (setq modus-operandi-theme-completions 'opinionated)
-  (setq modus-operandi-theme-org-blocks 'greyscale)
-  (setq modus-operandi-theme-scale-headings t)
-  (load-theme 'modus-vivendi t)
-  ;; Without it tables becomes missaligned
-  (set-face-attribute 'button nil :inherit '(fixed-pitch)))
+;;   (setq modus-operandi-theme-prompts 'intense)
+;;   (setq modus-operandi-theme-completions 'opinionated)
+;;   (setq modus-operandi-theme-org-blocks 'greyscale)
+;;   (setq modus-operandi-theme-scale-headings t)
+;;   (load-theme 'modus-vivendi t)
+;;   ;; Without it tables becomes missaligned
+;;   (set-face-attribute 'button nil :inherit '(fixed-pitch)))
 
 
-;; (use-package yoshi-theme
-  ;; :ensure t
-;; :config (load-theme 'yoshi t))
-;; (use-package darktooth-theme
-  ;; :ensure t
-  ;; :config (load-theme 'darktooth t))
-
-;; (use-package doom-themes
-;;   :ensure t
-;;   :config (load-theme 'doom-nord-light))
-
-
-;; (use-package powerline
-;;   :ensure t
-;;   :config (powerline-default-theme)
-;;   )
-;; (use-package eziam-light-theme
-;;     :ensure eziam-theme)
-=======
  ;; Command to toggle the display of the mode-line as a header
 (defvar-local header-line-format nil)
 (defun mode-line-in-header ()
@@ -259,7 +197,6 @@
 ;;   (taoline-show-previous-buffer nil)
 ;;   :config
 ;;   (taoline-mode t))
->>>>>>> 05d427a (change fort size)
 
 ;;; show key bindings in popup
 (use-package which-key
