@@ -19,6 +19,7 @@
 (setq initial-scratch-message "") ; print a default message in the empty scratch buffer opened at startup
 (setq native-comp-async-report-warnings-errors nil)
 (defalias 'yes-or-no-p 'y-or-n-p)       ; must have
+(pixel-scroll-precision-mode t)
 ;; (setq mode-line-format nil)
 
 ;; won’t have to reach for the return key to add newlines
@@ -45,23 +46,11 @@
 (defalias 'man 'woman)
 
 ;;; disable init.el modifying by custom system
-; (defvar custom-file-path "~/.config/emacs/custom.el" )
-; (if (not (file-exists-p custom-file-path))
-;     (write-region "" "" custom-file-path))
-; (setq custom-file custom-file-path)
-; (load custom-file)
-;
-
-;; bug in emacs-26.2
-;; (when (version< emacs-version "26.3")
-;;   (setq-default gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
-;;   )
-;;; packaging
-(require 'package)
-(setq package-enable-at-startup nil) ; tells emacs not to load any packages before starting up
-(setq package-check-signature nil)   ; allow unsigned
-
-
+(defvar custom-file-path "~/.config/emacs/custom.el" )
+(if (not (file-exists-p custom-file-path))
+    (write-region "" "" custom-file-path))
+(setq custom-file custom-file-path)
+(load custom-file)
 (add-to-list 'load-path "~/.config/emacs/lisp/")
 (add-to-list 'load-path "~/.config/emacs/vendor/taoline/")
 (add-to-list 'load-path "~/.config/emacs/vendor/themes/")
