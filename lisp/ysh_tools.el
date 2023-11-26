@@ -276,4 +276,20 @@
   ("C-c r r" . vr/replace)
   )
 
+(use-package tree-sitter
+  :config
+  (use-package tree-sitter-langs)
+  (global-tree-sitter-mode)
+  (tree-sitter-hl-mode)
+  )
+
+(use-package ts-fold
+  :straight (ts-fold :type git :host github :repo "emacs-tree-sitter/ts-fold")
+  :config
+  (global-ts-fold-mode)
+  (global-ts-fold-indicators-mode)
+  :bind
+  ("C-c SPC" . ts-fold-toggle)
+  )
+
 (provide 'ysh_tools)
