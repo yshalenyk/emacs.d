@@ -23,6 +23,8 @@
   :after (ivy)
   :ensure t
   :diminish counsel-mode
+  :bind
+  ("C-c b" . counsel-buffer-or-recentf)
   :custom
   (counsel-describe-function-function #'helpful-callable)
   (counsel-describe-variable-function #'helpful-variable)
