@@ -147,7 +147,7 @@
 ;;(use-package ysh_helm)
 (use-package ysh_coding)
 ;(use-package ysh_semantic)
-;;(use-package ysh_autocomplete)
+(use-package ysh_autocomplete)
 (use-package ysh_python)
 (use-package ysh_abbrev)
 (use-package ysh_tools)

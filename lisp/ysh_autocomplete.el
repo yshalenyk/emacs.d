@@ -4,8 +4,9 @@
 (use-package corfu
   ;; Optional customizationsu
   :ensure t
+  :after orderless
   :custom
-  ;; (corfu-cycle t)                ;; Enable cycling for `corfu-next/previous'
+  (corfu-cycle t)                ;; Enable cycling for `corfu-next/previous'
   (corfu-auto t)                 ;; Enable auto completion
   ;; (corfu-separator ?\s)          ;; Orderless field separator
   ;; (corfu-quit-at-boundary nil)   ;; Never quit at completion boundary
@@ -27,6 +28,16 @@
   :init
   (global-corfu-mode))
 
+(use-package orderless
+  :ensure t
+   :init
+   (setq completion-styles '(orderless)
+         completion-category-defaults nil
+         completion-category-overrides '((file (styles . (partial-completion)))))
+   :config
+   ;; Fix completing hostnames when using /ssh:
+   (setq completion-styles '(orderless)
+         completion-category-overrides '((file (styles basic partial-completion)))))
 ;; A few more useful configurations...
 (use-package emacs
   :init
