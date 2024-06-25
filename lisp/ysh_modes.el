@@ -1,41 +1,45 @@
 
 ;;; additional languages
 (use-package rustic
-  :quelpa (rustic :fetcher git :url "https://github.com/brotzeit/rustic")
-  :after (lsp-mode)
+  :straight t
   )
 
 (use-package rust-mode
-  :ensure t)
+  :straight t)
 
 (use-package yaml-mode
-  :ensure t)
+  :straight t)
 
 (use-package terraform-mode
-  :ensure t)
+  :straight t)
 
 (use-package nix-mode
-  :ensure t)
+  :straight t)
 
 (use-package graphql-mode
-  :ensure t)
+  :straight t)
 
 (use-package nginx-mode
-  :ensure t)
+  :straight t)
 
 (use-package go-mode
-  :ensure t)
+  :straight t)
 
+;; Assuming usage with dart-mode
 (use-package dart-mode
-  :ensure t)
+  :straight t
+  ;; Optional
+  :hook (dart-mode . flutter-test-mode))
 
 (use-package vue-mode
-  :ensure t)
+  :straight t)
 
-(use-package csharp-mode
-  :ensure t
-  :config
-  (add-to-list 'auto-mode-alist '("\\.cs\\'" . csharp-tree-sitter-mode)))
+(use-package flutter
+  :after dart-mode
+  :bind (:map dart-mode-map
+              ("C-M-x" . #'flutter-run-or-hot-reload))
+  :custom
+  (flutter-sdk-path "/Applications/flutter/"))
 
 (provide 'ysh_modes)
 

@@ -13,7 +13,7 @@
   ;;        ("M-y" . helm-show-kill-ring)
   ;;        ("C-x b" . helm-mini)
   ;;        ("M-/" . helm-dabbrev))
-  :ensure t
+  :straight t
   :config
   (setq
    helm-scroll-amount 4 ; scroll 4 lines other window using M-<next>/M-<prior>
@@ -80,7 +80,7 @@
 
 (use-package helm-rg
   :defer t
-  :ensure t
+  :straight t
   ;; :config
   ;; (bind-keys :map helm-grep-mode-map
              ;; ("RET" . helm-grep-mode-jump-other-window)

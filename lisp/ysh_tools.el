@@ -1,36 +1,36 @@
 ;;; copy mode for command line
 (use-package xclip
-  :ensure t
+  :straight t
   :config (xclip-mode 1))
 
 ;; Project management solution
 (use-package projectile
   :delight '(:eval (concat " " (projectile-project-name)))
-  :ensure t
+  :straight t
   :custom (projectile-completion-system 'ivy)
   :config
   (use-package ripgrep
-    :ensure t)
+    :straight t)
   (use-package rg
-    :ensure t)
+    :straight t)
   (projectile-mode t)
   ;; (use-package helm-projectile
-    ;; :ensure t
+    ;; :straight t
   ;; :config (helm-projectile-on))
   (use-package counsel-projectile
-    :ensure t)
+    :straight t)
   )
 
 ;;; git frontend
 (use-package magit
-  :ensure t
+  :straight t
   :config
   (add-hook 'after-save-hook 'magit-after-save-refresh-status t)
   (define-key magit-mode-map (kbd "<tab>") 'magit-section-toggle)
-  (use-package magit-todos
-    :ensure t
-    :demand t
-    )
+  ;; (use-package magit-todos
+  ;;   :straight t
+  ;;   :demand t
+  ;;   )
   )
 
 (use-package w3m
@@ -52,11 +52,11 @@
 
 
 (use-package forge
-  :ensure t
+  :straight t
   :after magit)
 
 ;; (use-package pdf-tools
-;;   :ensure t
+;;   :straight t
 ;;   :pin manual ;; don't reinstall when package updates
 ;;   :mode  ("\\.pdf\\'" . pdf-view-mode)
 ;;   :config
@@ -67,7 +67,7 @@
 
 ;;; pass frontend
 ;; (use-package pass
-;;   :ensure t
+;;   :straight t
 ;;   :bind ("C-c C-u p" . pass))
 
 ;; ;;; fun
@@ -76,23 +76,23 @@
 
 ;; reddit
 ;; (use-package md4rd
-;;   :ensure t
+;;   :straight t
 ;;   :config (add-hook 'md4rd-mode-hook 'md4rd-indent-all-the-lines))
 
 ;; XXX: can't desrcibe how i hate external dependencies
 ;; (use-package format-all
-;;   :ensure t
+;;   :straight t
 ;;   :hook (prog-mode . format-all-mode))
 
 
 (use-package expand-region
-  :ensure t
+  :straight t
   :config
   (use-package embrace
-    :ensure t
+    :straight t
     )
   :bind ("s-2" . er/expand-region)
-  :bind ("s-9" . er/expand-region)
+  :bind ("s-8" . er/expand-region)
   )
 
 (use-package dired
@@ -102,7 +102,7 @@
   (setq dired-listing-switches "-alGhvF --group-directories-first"))
 
 (use-package deadgrep
-  :ensure t
+  :straight t
   :config (global-set-key (kbd "<f5>") 'deadgrep))
 
 (use-package recentf
@@ -115,14 +115,14 @@
   (recentf-mode 1))
 
 (use-package define-word
-  :ensure t)
+  :straight t)
 
 (use-package ibuffer
   :custom
   (ibuffer-show-empty-filter-groups nil)
   :config
   (use-package ibuffer-vc
-    :ensure t
+    :straight t
     :config
     (add-hook 'ibuffer-hook
 	      (lambda ()
@@ -141,58 +141,54 @@
 
 (use-package harvest
   :demand t
-  :ensure t
+  :straight t
   :config
   (global-set-key (kbd "C-c h") 'harvest))
 
 ;(use-package atomic-chrome
-;  :ensure t
+;  :straight t
 ;  :config (atomic-chrome-start-server))
 
 (use-package super-save
-  :ensure t
+  :straight t
   :config
   (super-save-mode t))
 
 (use-package winner
   :config (winner-mode t))
 
-(use-package pass
-  :ensure t)
+;; (use-package pass
+;;   :straight t)
 
-(use-package dashboard
-  :ensure t
-  :config
-  (dashboard-setup-startup-hook))
 
 ;; terminal
 (use-package vterm
-  :ensure t)
+  :straight t)
 
 ;; debugger support
 ;; TODO: check me out!
 (use-package realgud
-  :ensure t)
+  :straight t)
 
 (use-package rainbow-mode
-  :ensure t
+  :straight t
   :hook (prog-mode . rainbow-mode)
   )
 
 (use-package wucuo
-  :ensure t
+  :straight t
   :hook
   (prog-mode . wucuo-start)
   (text-mode . wucuo-start)
   :init
-  (setq ispell-program-name "hunspell")
+  (setq ispell-program-name "aspell")
   :config
   (flyspell-mode t)
   )
 
 
 (use-package dumb-jump
-  :ensure t
+  :straight t
   :config
   (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
   (setq dumb-jump-prefer-searcher 'rg)
@@ -202,23 +198,9 @@
   )
 
 
-(use-package org-drill
-  :ensure t)
-
-(use-package org-roam
-  :ensure t
-  :custom
-  (org-roam-directory (file-truename "~/Documents/org-roam"))
-  :bind
-  ("C-c n i" . org-roam-node-insert)
-  ("C-c n n" . org-roam-node-find)
-  ("C-c n l" . org-roam-buffer-toggle)
-  :config
-  (org-roam-setup)
-  )
 
 (use-package sx
-  :ensure t
+  :straight t
   :config
   (bind-keys :prefix "C-c s"
              :prefix-map my-sx-map
@@ -231,7 +213,7 @@
              ("s" . sx-search)))
 
 (use-package jump-char
-  :ensure t
+  :straight t
   :bind ("C-o" . jump-char-forward))
 
 
@@ -257,39 +239,73 @@
                                                    (getenv "HOME"))))
 
 (use-package dash-at-point
-  :ensure t
+  :straight t
   :bind
   ("C-c h" . dash-at-point)
   ("C-c d" . dash-at-point-with-docset)
   )
-(use-package org
-  :config
-  (setq
-   org-startup-with-inline-images t
-   )
-  )
 
 (use-package visual-regexp
-  :ensure t
+  :straight t
   :bind
   ("C-c q" . vr/query-replace)
   ("C-c r r" . vr/replace)
   )
 
-(use-package tree-sitter
+
+
+(use-package treesit-auto
+  :straight t
+  :custom
+  (treesit-auto-install 'prompt)
   :config
-  (use-package tree-sitter-langs)
-  (global-tree-sitter-mode)
-  (tree-sitter-hl-mode)
+  (treesit-auto-add-to-auto-mode-alist 'all)
+  (global-treesit-auto-mode))
+
+
+(use-package treesit-fold
+  :straight (treesit-fold :type git :host github :repo "emacs-tree-sitter/treesit-fold")
+  :after (treesit-auto)
+  :hook (prog-mode . treesit-fold-mode)
+  :bind ("C-c SPC" . treesit-fold-toggle)
   )
 
-(use-package ts-fold
-  :straight (ts-fold :type git :host github :repo "emacs-tree-sitter/ts-fold")
-  :config
-  (global-ts-fold-mode)
-  (global-ts-fold-indicators-mode)
-  :bind
-  ("C-c SPC" . ts-fold-toggle)
+
+
+;;   (setq treesit-language-source-alist
+;;   '((bash "https://github.com/tree-sitter/tree-sitter-bash")
+;;     (c "https://github.com/tree-sitter/tree-sitter-c")
+;;     (cmake "https://github.com/uyha/tree-sitter-cmake")
+;; ;    (common-lisp "https://github.com/theHamsta/tree-sitter-commonlisp")
+;;     (cpp "https://github.com/tree-sitter/tree-sitter-cpp")
+;;     (css "https://github.com/tree-sitter/tree-sitter-css")
+;;  ;   (csharp "https://github.com/tree-sitter/tree-sitter-c-sharp")
+;;     (elisp "https://github.com/Wilfred/tree-sitter-elisp")
+;;     (go "https://github.com/tree-sitter/tree-sitter-go")
+;; ;    (go-mod "https://github.com/camdencheek/tree-sitter-go-mod")
+;;     (html "https://github.com/tree-sitter/tree-sitter-html")
+;;   ;  (js . ("https://github.com/tree-sitter/tree-sitter-javascript" "master" "src"))
+;;     (json "https://github.com/tree-sitter/tree-sitter-json")
+;;     (lua "https://github.com/Azganoth/tree-sitter-lua")
+;;     (make "https://github.com/alemuller/tree-sitter-make")
+;;     (markdown "https://github.com/ikatyang/tree-sitter-markdown")
+;;     (python "https://github.com/tree-sitter/tree-sitter-python")
+;;     (r "https://github.com/r-lib/tree-sitter-r")
+;;     (rust "https://github.com/tree-sitter/tree-sitter-rust")
+;;     (toml "https://github.com/tree-sitter/tree-sitter-toml")
+;;     (tsx . ("https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src"))
+;;     (typescript . ("https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src"))
+;;     (yaml "https://github.com/ikatyang/tree-sitter-yaml")))
+;;   (dolist (lang treesit-language-source-alist)
+;;   (unless (treesit-language-available-p (car lang))
+;;     (treesit-install-language-grammar (car lang))))
+;;   (setq treesit-load-name-override-list
+;;    '((c++ "libtree-sitter-cpp")))
+
+
+(use-package vterm-toggle
+  :straight t
+  :bind ("C-c t" . vterm-toggle)
   )
 
 (provide 'ysh_tools)

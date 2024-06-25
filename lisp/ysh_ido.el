@@ -11,12 +11,12 @@
   :config
 
   (use-package ido-vertical-mode
-    :ensure t)
+    :straight t)
   (use-package smex
-    :ensure t)
+    :straight t)
   (use-package flx-ido
-    :ensure t)
-  ;; (use-package ido-occur :ensure t)
+    :straight t)
+  ;; (use-package ido-occur :straight t)
 
   (ido-mode 1)
   (flx-ido-mode t)
@@ -30,7 +30,7 @@
   (setq magit-completing-read-function_'magit-ido-completing-read))
 
 (use-package ido-completing-read+
-  :ensure t
+  :straight t
   :preface
   (defvar ido-ubiquitous-debug-mode nil)
   :config

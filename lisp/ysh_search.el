@@ -15,13 +15,13 @@
      (t . "^")))
   :config
   ;; TODO: wgrep
-  (use-package wgrep :ensure t)
+  (use-package wgrep :straight t)
   (ivy-mode t)
   )
 
 (use-package counsel
   :after (ivy)
-  :ensure t
+  :straight t
   :diminish counsel-mode
   :bind
   ("C-c b" . counsel-buffer-or-recentf)
@@ -39,7 +39,7 @@
   (counsel-mode t))
 
 (use-package prescient
-  :ensure t
+  :straight t
   :custom
   (prescient-history-length 200)
   (prescient-save-file "~/.tools/emacs/prescient-items")
@@ -48,7 +48,7 @@
   (prescient-persist-mode 1))
 
 (use-package ivy-prescient
-  :ensure t
+  :straight t
   :after (prescient ivy)
   :custom
   (ivy-prescient-sort-commands
@@ -61,7 +61,7 @@
 
 ;; More friendly interface for ivy
 (use-package ivy-rich
-  :ensure t
+  :straight t
   :after (ivy counsel)
   :config (ivy-rich-mode t))
 
@@ -69,7 +69,7 @@
 ;; https://github.com/tumashu/ivy-posframe
 
 (use-package counsel-projectile
-  :ensure t
+  :straight t
   :after (ivy projectile)
   :config
   )

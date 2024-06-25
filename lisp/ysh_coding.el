@@ -18,7 +18,7 @@
 ;; (use-package smartparens-config
   ;; :ensure smartparens
   ;; :config
-;; 
+; 
   ;; (show-smartparens-global-mode t)
   ;; )
 
@@ -50,20 +50,12 @@
 ;;   :hook (prog-mode . yafolding-mode))
 
 (use-package hide-show
-  :bind ("<C-return>" . hs-toggle-hiding)
+  :bind ("C-c SPC" . hs-toggle-hiding)
   :hook (prog-mode . hs-minor-mode)
   )
 
-(use-package tree-sitter
-  :ensure t
-  :config
-  (global-tree-sitter-mode)
-  )
-(use-package tree-sitter-langs :ensure t)
-
-
-;; TODO: bind keys for skeletor
-(use-package skeletor
-  :ensure t)
+;; ;; TODO: bind keys for skeletor
+;; (use-package skeletor
+;;   :ensure t)
 
 (provide 'ysh_coding)

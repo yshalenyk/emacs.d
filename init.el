@@ -2,6 +2,25 @@
 ;;; Commentary:
 ;;; root configuration
 ;;; Code:
+(setq package-enable-at-startup nil)
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name
+        "straight/repos/straight.el/bootstrap.el"
+        (or (bound-and-true-p straight-base-dir)
+            user-emacs-directory)))
+      (bootstrap-version 7))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
+
+(straight-use-package 'use-package)
+(straight-use-package 'org)
 
 ;;; initial configuration
 (setq delete-old-versions -1 )		; delete excess backup versions silently
@@ -20,6 +39,15 @@
 (setq native-comp-async-report-warnings-errors nil)
 (defalias 'yes-or-no-p 'y-or-n-p)       ; must have
 (pixel-scroll-precision-mode t)
+
+(add-to-list 'exec-path "/opt/homebrew/bin/")
+(add-to-list 'exec-path "/Users/yshalenyk/.cargo/bin/")
+
+
+(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+(add-to-list 'default-frame-alist '(ns-appearance . light))
+
+
 ;; (setq mode-line-format nil)
 
 ;; won’t have to reach for the return key to add newlines
@@ -45,44 +73,40 @@
 ;; woman
 (defalias 'man 'woman)
 
-;;; disable init.el modifying by custom system
-(defvar custom-file-path "~/.config/emacs/custom.el" )
-(if (not (file-exists-p custom-file-path))
-    (write-region "" "" custom-file-path))
-(setq custom-file custom-file-path)
-(load custom-file)
-(add-to-list 'load-path "~/.config/emacs/lisp/")
-(add-to-list 'load-path "~/.config/emacs/vendor/taoline/")
-(add-to-list 'load-path "~/.config/emacs/vendor/themes/")
-;;(add-to-list 'load-path "~/work/xah-fly-keys")
-;; (add-to-list 'load-path "~/.config/emacs/lisp/xah-fly-keys/")
+
 ;;; the following lines tell emacs where on the internet to look up
 ;;; for new packages.
-(setq package-archives '(("org"       . "https://orgmode.org/elpa/")
-                         ("gnu"       . "https://elpa.gnu.org/packages/")
-                         ("melpa"     . "https://melpa.org/packages/")
-                         ;;("marmalade" . "https://marmalade-repo.org/packages/")
-                         ))
+;; (setq package-archives '(("org"       . "https://orgmode.org/elpa/")
+;;                          ("gnu"       . "https://elpa.gnu.org/packages/")
+;;                          ("melpa"     . "https://melpa.org/packages/")
+;;                          ;;("marmalade" . "https://marmalade-repo.org/packages/")
+;;                          ))
 
-(defvar bootstrap-version)
-(let ((bootstrap-file
-       (expand-file-name
-        "straight/repos/straight.el/bootstrap.el"
-        (or (bound-and-true-p straight-base-dir)
-            user-emacs-directory)))
-      (bootstrap-version 7))
-  (unless (file-exists-p bootstrap-file)
-    (with-current-buffer
-        (url-retrieve-synchronously
-         "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
-         'silent 'inhibit-cookies)
-      (goto-char (point-max))
-      (eval-print-last-sexp)))
-  (load bootstrap-file nil 'nomessage))
+;; (defvar bootstrap-version)
+;; (let ((bootstrap-file
+;;        (expand-file-name
+;;         "straight/repos/straight.el/bootstrap.el"
+;;         (or (bound-and-true-p straight-base-dir)
+;;             user-emacs-directory)))
+;;       (bootstrap-version 7))
+;;   (unless (file-exists-p bootstrap-file)
+;;     (with-current-buffer
+;;         (url-retrieve-synchronously
+;;          "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
+;;          'silent 'inhibit-cookies)
+;;       (goto-char (point-max))
+;;       (eval-print-last-sexp)))
+;;   (load bootstrap-file nil 'nomessage))
 
-(package-initialize)
+;(package-initialize)
 
 
+
+;;; disable init.el modifying by custom system
+(setq custom-file (expand-file-name "customs.el" user-emacs-directory))
+(add-hook 'elpaca-after-init-hook (lambda () (load custom-file 'noerror)))
+;;(defvar custom-file-path "~/.config/emacs/custom.el" )
+;;(load custom-file)
 
 (setq inhibit-startup-screen t)
 ;; (define-key key-translation-map (kbd "ESC") (kbd "C-g"))
@@ -93,39 +117,17 @@
 ;; (setenv "LC_ALL" "en_US.UTF-8" )
 
 ;; refresh
-(when (not package-archive-contents)
-  (package-refresh-contents))
+;; (when (not package-archive-contents)
+;;   (package-refresh-contents))
 
-;;; Bootstrap `use-package'
-(unless (package-installed-p 'use-package) ; unless it is already installed
-  (package-refresh-contents) ; updage packages archive
-  (package-install 'use-package)) ; and install the most recent version of use-package
-
-(require 'use-package) ; guess what this one does too ?
-
-
-(use-package quelpa
-  :ensure t
-  :config
-  (use-package quelpa-use-package
-    :ensure t)
-  )
-
-;;; auto update packages
-;; (use-package auto-package-update
-;;   :ensure t
-;;   :config
-;;   (setq auto-package-update-delete-old-versions t
-;;         auto-package-update-interval 4)
-;;   (auto-package-update-maybe))
 
 ;;; use libs
 (use-package dash
-  :ensure t)
+  :straight t)
 (use-package s
-  :ensure t)
+  :straight t)
 (use-package monitor
-  :ensure t)
+  :straight t)
 
 ;(use-package server
  ; :hook (after-init . server-start))
@@ -137,23 +139,25 @@
 (global-subword-mode t)
 
 ;; load config modules(
-
+(add-to-list 'load-path (expand-file-name "~/.config/emacs/lisp/"))
+(use-package ysh_keys)
 (use-package ysh_ui)
 ;; (use-package ysh_theme)
 (use-package ysh_modes)
+(use-package ysh_org)
 ;; (use-package ysh_ido)
-(use-package ysh_search)
-;;(use-package ysh_consult)
+;;(use-package ysh_search)
+(use-package ysh_consult)
 ;;(use-package ysh_helm)
 (use-package ysh_coding)
 ;(use-package ysh_semantic)
 (use-package ysh_autocomplete)
 (use-package ysh_python)
-(use-package ysh_abbrev)
+;;(use-package ysh_abbrev)
 (use-package ysh_tools)
 ;(use-package ysh_semantic)
 ;; (use-package ysh_lisp)
-(use-package ysh_keys)
+
 
 ;;(use-package ysh_evil)
 ;;; TODO: dap-mode
