@@ -160,6 +160,8 @@
 ;; (use-package pass
 ;;   :straight t)
 
+(use-package tablist
+  :straight t)
 
 ;; terminal
 (use-package vterm
@@ -174,6 +176,16 @@
   :straight t
   :hook (prog-mode . rainbow-mode)
   )
+
+(require 'package)
+(when (package-installed-p 'pdf-tools)
+      (progn (message "pdf-tools availabe. loading...")
+      (use-package pdf-tools
+	:init
+	(pdf-tools-install)  ; Standard activation command
+	(pdf-loader-install) ; On demand loading, leads to faster startup time
+	)))
+
 
 (use-package wucuo
   :straight t

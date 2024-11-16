@@ -187,19 +187,55 @@
 ;;   :config
 ;;   (load-theme 'ef-day t))
 
-(use-package solarized-theme
+;; (use-package solarized-theme
+;;   :straight t
+;;   :config (load-theme 'solarized-selenized-light t))
+(use-package doom-themes
   :straight t
-  :config (load-theme 'solarized-selenized-light t))
-
-(use-package mood-line
-  :straight t
-  ;; Enable mood-line
   :config
-  (mood-line-mode)
-  ;; Use pretty Fira Code-compatible glyphs
-  ;;:custom
-  ;;(mood-line-glyph-alist mood-line-glyphs-fira-code)
-  )
+  ;; Global settings (defaults)
+  (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+        doom-themes-enable-italic t) ; if nil, italics is universally disabled
+  (load-theme 'doom-gruvbox-light t)
+
+  ;; Enable flashing mode-line on errors
+  (doom-themes-visual-bell-config)
+  ;; Corrects (and improves) org-mode's native fontification.
+  (doom-themes-org-config))
+
+(use-package doom-modeline
+  :straight t
+  :init (doom-modeline-mode 1)
+  :config
+  (setq
+   doom-modeline-support-imenu t
+   doom-modeline-project-detection 'auto
+   doom-modeline-icon t
+   doom-modeline-major-mode-icon t
+   doom-modeline-buffer-state-icon t
+   doom-modeline-lsp-icon t
+   doom-modeline-buffer-name t
+   doom-modeline-minor-modes nil
+   doom-modeline-enable-word-count nil
+   doom-modeline-buffer-encoding nil
+   doom-modeline-lsp t
+   doom-modeline-vcs-icon t
+   doom-modeline-workspace-name t
+   doom-modeline-github nil
+   doom-modeline-battery t
+   doom-modeline-time t
+   doom-modeline-env-version t
+  ))
+
+;; (use-package mood-line
+;;   :straight t
+;;   ;; Enable mood-line
+;;   :config
+;;   (mood-line-mode)
+;;   ;; Use pretty Fira Code-compatible glyphs
+;;   ;;:custom
+;;   ;;(mood-line-glyph-alist mood-line-glyphs-fira-code)
+;;   )
 
 (use-package all-the-icons
   :straight t)

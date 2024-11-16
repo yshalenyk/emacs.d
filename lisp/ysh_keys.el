@@ -13,9 +13,8 @@
 (define-key key-translation-map (kbd "C-c") (kbd "C-p"))
 (define-key key-translation-map (kbd "C-p") (kbd "C-j"))
 
-(define-key key-translation-map (kbd "C-h") (kbd "C-b"))
 ;; (define-key key-translation-map (kbd "C-b") (kbd "C-s"))
-(define-key key-translation-map (kbd "C-d") (kbd "C-h"))
+
 (define-key key-translation-map (kbd "C-d") (kbd "C-h"))
 ;(define-key key-translation-map (kbd "C-f") (kbd "C-d"))
 ;; (define-key key-translation-map (kbd "C-s") (kbd "C-f"))
