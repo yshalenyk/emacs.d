@@ -214,7 +214,7 @@
 (use-package sx
   :straight t
   :config
-  (bind-keys :prefix "C-c s"
+  (bind-keys :prefix "C-c w"
              :prefix-map my-sx-map
              :prefix-docstring "Stack exchange keymap."
              ("q" . sx-tab-all-questions)

@@ -87,6 +87,9 @@
 
 (use-package consult
   :straight t
+  :after projectile
+  :config
+  (setq consult-project-root-function 'projectile-project-root)
   :bind (
 	 ;; C-x bindings (ctl-x-map)
          ("C-x M-:" . consult-complex-command)     ;; orig. repeat-complex-command
@@ -95,8 +98,11 @@
          ("C-x 5 b" . consult-buffer-other-frame)  ;; orig. switch-to-buffer-other-frame
          ("C-x r b" . consult-bookmark)            ;; orig. bookmark-jump
          ("C-x p b" . consult-project-buffer)      ;; orig. project-switch-to-buffer
+	 ("C-c s" . consult-ripgrep)
+	 ("C-c u" . consult-find)
+	 ("M-l" . consult-goto-line)
 
-	 ;; C-c bindings (mode-specific-map)
+	 ;; c-c bindings (mode-specific-map)
 	 (:map ctl-c-r-map
 	       ("r" . consult-recent-file))
          ("h" . consult-history)
@@ -121,11 +127,6 @@
          ("c I" . consult-imenu-multi)
          ("s d" . consult-find)
          ("s D" . consult-locate)
-         ("s g" . consult-grep)
-         ("s G" . consult-git-grep)
-         ("s r" . consult-ripgrep)
-         ("s l" . consult-line)
-         ("s L" . consult-line-multi)
          ("s m" . consult-multi-occur)
          ("s k" . consult-keep-lines)
          ("s u" . consult-focus-lines)
@@ -144,9 +145,7 @@
   ;; relevant when you use the default completion UI.
   :hook (completion-list-mode . consult-preview-at-point-mode)
 
-  ;; The :init configuration is always executed (Not lazy)
   :init
-
   ;; Optionally configure the register formatting. This improves the register
   ;; preview for `consult-register', `consult-register-load',
   ;; `consult-register-store' and the Emacs built-ins.
@@ -157,12 +156,9 @@
   ;; This adds thin lines, sorting and hides the mode line of the window.
   (advice-add #'register-preview :override #'consult-register-window)
 
-  ;; Use Consult to select xref locations with preview
   (setq xref-show-xrefs-function #'consult-xref
         xref-show-definitions-function #'consult-xref)
 
-  ;; Configure other variables and modes in the :config section,
-  ;; after lazily loading the package.
   :config
 
   ;; Optionally configure preview. The default value
@@ -184,23 +180,6 @@
   ;; Optionally configure the narrowing key.
   ;; Both < and C-+ work reasonably well.
   (setq consult-narrow-key "<") ;; (kbd "C-+")
-
-  ;; Optionally make narrowing help available in the minibuffer.
-  ;; You may want to use `embark-prefix-help-command' or which-key instead.
-  ;; (define-key consult-narrow-map (vconcat consult-narrow-key "?") #'consult-narrow-help)
-
-  ;; By default `consult-project-function' uses `project-root' from project.el.
-  ;; Optionally configure a different project root function.
-  ;; There are multiple reasonable alternatives to chose from.
-  ;;;; 1. project.el (the default)
-  ;; (setq consult-project-function #'consult--default-project--function)
-  ;;;; 2. projectile.el (projectile-project-root)
-  ;; (autoload 'projectile-project-root "projectile")
-  ;; (setq consult-project-function (lambda (_) (projectile-project-root)))
-  ;;;; 3. vc.el (vc-root-dir)
-  ;; (setq consult-project-function (lambda (_) (vc-root-dir)))
-  ;;;; 4. locate-dominating-file
-  ;; (setq consult-project-function (lambda (_) (locate-dominating-file "." ".git")))
 )
 
 ;; A few more useful configurations...

@@ -94,11 +94,11 @@
 (define-prefix-command 'ctl-x-c-map)
 (global-set-key (kbd "C-x c") 'ctl-x-c-map)
 
-
+(global-set-key (kbd "C-c C-SPC") 'completion-at-point)
 (global-set-key (kbd "s-,") 'xref-find-definitions)
 (global-set-key (kbd "s-.") 'xref-go-back)
 
-(global-set-key (kbd "s-2") 'ergoemacs-select-current-line)	
+(global-set-key (kbd "s-2") 'ergoemacs-select-current-line)
 
 (define-prefix-command 'command-o-keymap)
 

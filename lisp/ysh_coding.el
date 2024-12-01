@@ -16,11 +16,11 @@
 
 ;; smart wrap
 ;; (use-package smartparens-config
-  ;; :ensure smartparens
-  ;; :config
-; 
-  ;; (show-smartparens-global-mode t)
-  ;; )
+;; :ensure smartparens
+;; :config
+					; 
+;; (show-smartparens-global-mode t)
+;; )
 
 ;;; (use-package smartparens
 ;;   :ensure t
@@ -52,6 +52,27 @@
 (use-package hide-show
   :bind ("C-c SPC" . hs-toggle-hiding)
   :hook (prog-mode . hs-minor-mode)
+  )
+
+
+(use-package copilot
+  :straight (:host github :repo "copilot-emacs/copilot.el" :files ("*.el"))
+  :hook (prog-mode . copilot-mode)
+  :bind (:map copilot-completion-map
+              ("<tab>" . copilot-accept-completion)
+              ("TAB" . copilot-accept-completion)
+              ("C-<tab>" . copilot-accept-completion-by-word)
+              ("C-TAB" . copilot-accept-completion-by-word)
+              ("C-c C-p" . copilot-previous-completion)
+              ("C-c C-n" . copilot-next-completion)
+              ("C-c C-d" . copilot-dismiss-completion))
+  :ensure t
+  :config
+  (add-to-list 'copilot-indentation-alist '(org-mode 2))
+  (add-to-list 'copilot-indentation-alist '(text-mode 2))
+  (add-to-list 'copilot-indentation-alist '(closure-mode 2))
+  (add-to-list 'copilot-indentation-alist '(emacs-lisp-mode 2))
+  (add-to-list 'copilot-indentation-alist '(lisp-mode 2))
   )
 
 ;; ;; TODO: bind keys for skeletor
